@@ -1,23 +1,78 @@
-<!doctype html>
-<html>
-<head>
-	<title>Silly Simple</title>
-</head>
-<body>
-	Thomas<br>	
-	<button id="silly">Do it</button>
-	<button id="clear">Clear</button>
-	<div id="results"></div>
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Page Title</title> 
+	<meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+	<style>
+		html { overflow-y: scroll; /* always show scrollbar */ }
+	</style>
+	<script>
+		$(document).ready(function(){
+		  $("#options").click(function(){
+			$("#buttonrow").slideToggle("fast");
+		  });
+		});
+		$(document).ready(function(){
+		  $("#options2").click(function(){
+			$("#buttonrow2").slideToggle("fast");
+		  });
+		});
+	</script>
 	
-<script src="js/zepto.min.js"></script>
-<script src="js/silly.js"></script>
-<script>
-$('#silly').click(function() {
-	SILLY.DoIt($('#results'));
-});
-$('#clear').click(function() {
-	$('#results').html('');
-});
-</script>
+</head> 
+
+<body>
+	<div id="home" data-role="page" id="page1" data-theme="b">
+		<div data-role="header">
+			<a data-rel="back">< Tilbake</a>
+			<h3>Page header</h3>
+			<a href="#" data-icon="gear" class="ui-btn-right" id="options">Options</a>
+			<div data-role="controlgroup" data-type="horizontal" id="buttonrow" style="display:none;">
+				<a href="" data-role="button" data-icon="plus" data-ajax="false">En</a>
+				<a href="" data-role="button" data-icon="plus" data-ajax="false">To</a>
+				<a href="" data-role="button" data-icon="plus" data-ajax="false">Tre</a>
+			</div>
+
+		</div><!-- /header -->
+		
+		<div data-role="content">
+			<ul data-role="listview" data-theme="c" data-split-icon="check" data-inset="true">
+				<li>
+				<a href="index.html">
+				<h3>Broken Bells</h3>
+				<p>Broken Bells</p>
+				</a><a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album</a>
+				</li>
+
+				<li><a href="index.html">
+				<h3>Warning</h3>
+				<p>Hot Chip</p></a>
+				<a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album</a>
+				</li>
+
+				<li>
+					<a href="index.html">
+						1 linje <input type="checkbox" data-theme="c" name="checkbox-0" />
+					</a>
+					<a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">
+						Purchase album
+					</a>
+				</li>
+				
+				<label><input type="checkbox" data-theme="c" name="checkbox-0" /> I agree </label>
+			</ul>
+			
+			
+		</div><!-- /content -->
+	
+		<div data-role="footer" data-theme="a">
+			<h3>Page footer</h3>
+		</div><!-- /footer -->
+	</div>				
 </body>
+	
 </html>
