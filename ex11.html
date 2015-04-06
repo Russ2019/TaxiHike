@@ -1,1 +1,28 @@
-ex11
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function($){
+	$("button").click(function(){
+		//alert("button clicked");
+		//$.getJSON("json-data-1.php",function(result){
+		//$.getJSON("gmap_a_json.php",function(result){
+		$.getJSON("http://itorget.no/wp5/wp-content/themes/jq_touch/gmap_a_json_header.php",function(result){
+			$.each(result, function(i, field){
+				$("div").append(field + "<br>");
+				});
+			});
+		});
+	});
+</script>
+</head>
+<body>
+
+
+<button>Get JSON data</button>
+<div></div>
+
+</body>
+</html>
+
