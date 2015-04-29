@@ -1,9 +1,6 @@
-
-			
-
 <!DOCTYPE html> 
 <html> 
-<head> 
+<head>
 	<title>Page Title</title> 
 	<meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -13,66 +10,27 @@
 	<style>
 		html { overflow-y: scroll; /* always show scrollbar */ }
 	</style>
-	<script>
-		$(document).ready(function(){
-		  $("#options").click(function(){
-			$("#buttonrow").slideToggle("fast");
-		  });
-		});
-		$(document).ready(function(){
-		  $("#options2").click(function(){
-			$("#buttonrow2").slideToggle("fast");
-		  });
-		});
-	</script>
+	<script src="js/taxihike.js"></script>	
 	
 </head> 
 
-<body>
+<body 
 	<div id="home" data-role="page" id="page1" data-theme="b">
 		<div data-role="header">
-			<a data-rel="back">< Tilbake</a>
-			<h3>Page header</h3>
-			<a href="#" data-icon="gear" class="ui-btn-right" id="options">Options</a>
-			<div data-role="controlgroup" data-type="horizontal" id="buttonrow" style="display:none;">
-				<a href="" data-role="button" data-icon="plus" data-ajax="false">En</a>
-				<a href="" data-role="button" data-icon="plus" data-ajax="false">To</a>
-				<a href="" data-role="button" data-icon="plus" data-ajax="false">Tre</a>
-			</div>
-
-		</div><!-- /header -->
+			<a href=""></a>
+			<h3>TaxiHike 1.0</h3>
+			<a href="" id="" data-ajax="false" data-icon=""></a>
+		</div><!-- /header -->	
 		
-		<div data-role="content">
-			<ul data-role="listview" data-theme="c" data-split-icon="check" data-inset="true">
-				<li>
-				<a data-ajax="false" href="ex1.html">
-				<h3>Broken Bells</h3>
-				<p>Broken Bells</p>
-				</a><a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album</a>
-				</li>
-
-				<li><a data-ajax="false" href="ex5.html">
-				<h3>Warning</h3>
-				<p>Hot Chip</p></a>
-				<a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album</a>
-				</li>
-
-				<li><a data-ajax="false" href="ex11.html">
-				<h3>Warning 2</h3>
-				<p>Hot Chip</p></a>
-				<a href="lists-split-purchase.html" data-rel="dialog" data-transition="slideup">Purchase album</a>
-				</li>
-				
-				<label><input type="checkbox" data-theme="c" name="checkbox-0" /> I agree </label>
-			</ul>
-			
-			
+		<div id="content"  data-role="content">
+			<br>
 		</div><!-- /content -->
 	
 		<div data-role="footer" data-theme="a">
-			<h3>Page footer</h3>
+			<h3 id="footer_h3">Hovedsiden</h3>
 		</div><!-- /footer -->
-	</div>				
+	</div>
+
 </body>
 	
 </html>
