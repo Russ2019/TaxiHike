@@ -10,19 +10,46 @@
 	<style>
 		html { overflow-y: scroll; /* always show scrollbar */ }
 	</style>
+
 	<script src="js/taxihike.js"></script>	
+	<script>
+	//http://stackoverflow.com/questions/3480771/how-to-see-if-string-contains-substring
+	function containsStr(haystack, needle) {
+		return (haystack).indexOf(needle) !== -1;
+	}
+	$(document).ready(function(){
+		$("a").click(function(e) {
+			e.preventDefault();
+			//if (containsWord("red green blue", "red"))
+			var href = $(this).attr("href");
+			var ext = containsStr(href, "http://") || containsStr(href, "https://");
+			//alert('Clicked '+href); 
+			
+			if (ext) { 
+				//alert('external'); 
+				window.location = href;
+				} 
+			else { 
+				//alert('--'+href+'--'); 
+				local_storage_set('pgid', href);
+				location.reload(true);
+				//load_page(href);
+				}
+		});
+	});
+	</script>
 	
 </head> 
 
 <body 
 	<div id="home" data-role="page" id="page1" data-theme="b">
 		<div data-role="header">
-			<a href=""></a>
-			<h3>TaxiHike 1.0</h3>
-			<a href="" id="" data-ajax="false" data-icon=""></a>
+			<a href="http://www.vg.no" id="ul" data-icon="check">Heisann</a>
+			<h3 id="header_h3">TaxiHike 1.0</h3>
+			<a href="102" id="ur" data-ajax="false" data-icon="check">Hoppsann</a>
 		</div><!-- /header -->	
 		
-		<div id="content"  data-role="content">
+		<div id="content" data-role="content">
 			<br>
 		</div><!-- /content -->
 	
@@ -34,5 +61,3 @@
 </body>
 	
 </html>
-
-		
