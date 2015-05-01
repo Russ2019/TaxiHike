@@ -14,6 +14,7 @@
 	<script src="js/taxihike.js"></script>	
 	<script>
 	//http://stackoverflow.com/questions/3480771/how-to-see-if-string-contains-substring
+	
 	function containsStr(haystack, needle) {
 		return (haystack).indexOf(needle) !== -1;
 	}
@@ -23,17 +24,20 @@
 			//if (containsWord("red green blue", "red"))
 			var href = $(this).attr("href");
 			var ext = containsStr(href, "http://") || containsStr(href, "https://");
-			//alert('Clicked '+href); 
 			
 			if (ext) { 
-				//alert('external'); 
 				window.location = href;
 				} 
-			else { 
-				//alert('--'+href+'--'); 
-				local_storage_set('pgid', href);
-				location.reload(true);
-				//load_page(href);
+			else {
+				if (
+					(href === '101') || 
+					(href === '102') || 
+					(href === '103') 
+				) 
+					{
+					local_storage_set('pgid', href);
+					location.reload(true);
+					}
 				}
 		});
 	});
@@ -46,7 +50,7 @@
 		<div data-role="header">
 			<a href="http://www.vg.no" id="ul" data-icon="check">Heisann</a>
 			<h3 id="header_h3">TaxiHike 1.0</h3>
-			<a href="102" id="ur" data-ajax="false" data-icon="check">Hoppsann</a>
+			<a href="reset" id="ur" data-ajax="false" data-icon="check">Initialize</a>
 		</div><!-- /header -->	
 		
 		<div id="content" data-role="content">
@@ -61,3 +65,5 @@
 </body>
 	
 </html>
+
+		
