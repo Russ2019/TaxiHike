@@ -7,50 +7,45 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
-	<style>
-		html { overflow-y: scroll; /* always show scrollbar */ }
-	</style>
 
-	<script src="js/taxihike.js"></script>	
+	<script src="js/taxihike.js"></script>
 	<script>
-	//http://stackoverflow.com/questions/3480771/how-to-see-if-string-contains-substring
-	function containsStr(haystack, needle) {
-		return (haystack).indexOf(needle) !== -1;
-	}
-	$(document).ready(function(){
-		$("a").click(function(e) {
-			e.preventDefault();
-			var href = $(this).attr("href");
-			var ext = containsStr(href, "http://") || containsStr(href, "https://");
-			
-			if (ext) { 
-				window.location = href;
-				} 
-			else { 
-				local_storage_set('pgid', href);
-				location.reload(true);
-				}
-		});
-	});
+		$(document).on("pageinit",function(){
+			//alert("pageinit event fired!")
+			$('.ctrl_btn').on('click', function(e){
+				e.preventDefault();
+				var href = $(this).attr("href");
+				//alert('href: '+href);
+				href_redirect(href);
+
+								
+				//alert('bruk samme event-handler som i - handleData(data)');
+				//alert('href: '+$(this).attr("href"));
+				});
+		  				
+		});	
 	</script>
 	
 </head> 
 
-<body 
-	<div id="home" data-role="page" id="page1" data-theme="b">
+<body>
+	<div data-role="page" id="page1" data-theme="b">
 		<div data-role="header">
-			<a href="http://www.vg.no" id="ul" data-icon="check">Heisann</a>
+			<a id="ul" class="ctrl_btn" href="101" data-ajax="false" data-role="button" data-icon="check">Heisann</a>
 			<h3 id="header_h3">TaxiHike 1.0</h3>
-			<a href="101" id="ur" data-ajax="false" data-icon="tools">Reset</a>
+			<a id="ur" class="ctrl_btn" href="107" data-ajax="false" data-role="button" data-ajax="false" data-icon="check">Initialize</a>
 		</div><!-- /header -->	
 		
 		<div id="content" data-role="content">
 			<br>
 		</div><!-- /content -->
 	
-		<div data-role="footer" data-theme="a">
-			<h3 id="footer_h3">Hovedsiden</h3>
-		</div><!-- /footer -->
+		<div data-role="footer" class="ui-bar">
+			<a class="ctrl_btn" href="109" data-ajax="false" data-role="button" data-icon="plus">Add</a>
+			<a class="ctrl_btn" href="111" data-ajax="false" data-role="button" data-icon="arrow-u">Up</a>
+			<a class="ctrl_btn" href="103" data-ajax="false" data-role="button" data-icon="arrow-d">Down</a>
+		</div><!-- /footer -->	
+			
 	</div>
 
 </body>
