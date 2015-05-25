@@ -40,6 +40,16 @@
 				});
 		});	
 	</script>
+	<script>
+		$(document).on("pageinit",function(){
+			$('#content').on('click', 'a', function(e){
+				e.preventDefault();
+				var href = $(this).attr("href");
+				//alert('a-href click '+href);
+				href_redirect(href);
+				});
+		});		
+	</script>
 	
 </head>
 	
