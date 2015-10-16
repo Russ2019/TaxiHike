@@ -1,59 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<title>&nbsp;</title>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-		
+	<title>Silly Simple</title>
 </head>
-	
 <body>
-
-<!---------------------------------- Main Page --------------------------------------->
-<div data-role="page" id="main">
-    <div data-role="header" data-position="fixed">
-        <h1 id="appTitle">TaxiHike 1.0.5</h1>
-    </div>
-    <div data-role="content">   
-		<ul data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="#page2" >Aktivering</a></li>
-			<li><a href="#page3" >Parametere</a></li>
-		</ul>
-    </div>
-</div>
-<!---------------------------------- Notification ------------------------------------>
-<div data-role="page" id="page2">
-    <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
-        <h1>Aktiveringskode</h1>
-    </div>
-	<div data-role="content">
-		<div id="addContactProperties"></div>
-		<div data-role="fieldcontain" class="ui-hide-label">
-			<form>
-				<label for="kode">Aktiveringskode</label>
-				<input type="text" name="kode" id="kode" value="" placeholder="Kode"/>
-			</form>
-		</div>              
-		<button onclick="init_app();">Aktiver</button>
-	</div>
-</div>
-
-<div data-role="page" id="page3">
-    <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
-        <h1>Parametere</h1>
-    </div>
-	<div data-role="content">		
-        <div id="localparams" class="mesgBox ui-grid-a">
-			<!-- dynamic content here -->content...
-		</div>		
-	</div>
-</div>
+	<button id="silly">Do it</button>
+	<button id="clear">Clear</button>
+	<div id="results"></div>
 	
-</body>	
+<script src="js/zepto.min.js"></script>
+<script src="js/silly.js"></script>
+<script>
+$('#silly').click(function() {
+	SILLY.DoIt($('#results'));
+});
+$('#clear').click(function() {
+	$('#results').html('');
+});
+</script>
+</body>
 </html>
