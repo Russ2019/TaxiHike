@@ -10,6 +10,7 @@
     <name>TaxiHike 1.0.1</name>
     
     <access origin="*" />
+    <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
 
     <description>
