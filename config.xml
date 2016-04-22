@@ -8,6 +8,8 @@
     <!-- versionCode is optional and Android only -->
 
     <name>TaxiHike 1.0.1</name>
+    
+    <access origin="*" />
 
     <description>
        Beskrivelse. 
