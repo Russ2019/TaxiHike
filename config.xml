@@ -10,6 +10,7 @@
     <name>TaxiHike 1.0.1</name>
     
     <access origin="*" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <description>
        Beskrivelse. 
