@@ -18,6 +18,18 @@
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
     <gap:splash src="splash.png" />
     
+    <!-- Default application icon -->
+    <icon src="icon.png" />
+    <!--
+        Default icon should work, but cordova don't overwrite
+        the default on all densities
+        source: http://stackoverflow.com/questions/17820492/how-to-add-app-icon-within-phonegap-projects
+    -->
+    <icon src="icon.png" platform="android" density="ldpi" />
+    <icon src="icon.png" platform="android" density="mdpi" />
+    <icon src="icon.png" platform="android" density="hdpi" />
+    <icon src="icon.png" platform="android" density="xhdpi" />
+    
     <preference name="phonegap-version" value="3.0.0" />
     <access origin="*" />
     <allow-navigation href="*" />
