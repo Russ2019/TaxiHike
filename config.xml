@@ -2,15 +2,12 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.taxihike"
-        versionCode = "106" 
-        version     = "1.0.6" >
+        versionCode = "107" 
+        version     = "1.0.7" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>TaxiHike v1.0.6</name>
-    
-    <preference name="SplashScreen" value="screen" />
-    <gap:splash src="splash.png" />
+    <name>TaxiHike v1.0.7</name>
     
     <!-- Default application icon -->
     <icon src="icon.png" />
