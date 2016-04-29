@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>TaxiHike 1.0.1</name>
+    <name>TaxiHike 1.0.2</name>
     
     <preference name="phonegap-version" value="3.0.0" />
     <access origin="*" />
