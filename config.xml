@@ -2,12 +2,12 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.taxihike"
-        versionCode = "104" 
-        version     = "1.0.4" >
+        versionCode = "105" 
+        version     = "1.0.5" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>TaxiHike v1.0.4</name>
+    <name>TaxiHike v1.0.5</name>
     
     <preference name="SplashScreen" value="screen" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
