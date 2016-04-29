@@ -1,103 +1,140 @@
-
-
 <!DOCTYPE html>
 <html>
+<title>&nbsp;</title>
 <head>
-  <title>Share QR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">		
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-  <link rel="stylesheet" href="shareqr3.3.css" />
-  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-  <script src="shareqr3.3.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	
+    <script type="text/javascript" src="js/taxihike.js"></script>
+	<style>
+		.mesgBox { 
+			border-radius: 8px;
+			border: 1px solid black;
+			padding: 20px; 
+			}
+	</style>
+	<script>
+		var app_activated = local_var('appid');
+		if (app_activated) {
+			window.location.href = "mal.html";
+		}
+	</script>
+	<script>
+		$(document).bind("mobileinit", function(){
+		  //To override default settings, bind to mobileinit.
+		  $.mobile.defaultPageTransition = "none";
+		});	
+	</script>
+	<script>
+		$( document ).on( "pageinit", "#page3", function( event ) {
+		  //alert( "page3 init" );
+		  showLocalParams();
+		});	
+	</script>
+	
+	</script>
+	<script>
+	function showLocalParams() {
+		var appid = local_var('appid');
+		var pgid = local_var('pgid');
+		var uid = local_var('uid');
+		var srvc = local_var('srvc');
+		//var navn = local_var('navn');
+		var navn = 'Taxi';
+		//var mobnr = local_var('mobnr');
+		var mobnr = '93470093';
+		//var taxisentral = local_var('taxisentral');
+		var taxisentral = 'Asker & Bærum Taxi';
+		//var loyvenr = local_var('loyvenr');
+		var loyvenr = 'C-93';
+		//var status = local_var('status');
+		var status = 'Aktiv';
+		
+        $("#localparams").empty();
+        
+        //$("#localparams").append(addGridRow("a", boldLabel(colrText("red", "col a"))));          
+        //$("#localparams").append(addGridRow("b", "col b"));
+
+        $("#localparams").append(addGridRow("a", boldLabel("appid")));          
+        $("#localparams").append(addGridRow("b", appid));
+		
+        $("#localparams").append(addGridRow("a", boldLabel("pgid")));          
+        $("#localparams").append(addGridRow("b", pgid));
+
+        $("#localparams").append(addGridRow("a", boldLabel("srvc")));          
+        $("#localparams").append(addGridRow("b", srvc));
+
+        $("#localparams").append(addGridRow("a", boldLabel("uid")));          
+        $("#localparams").append(addGridRow("b", uid));
+
+        $("#localparams").append(addGridRow("a", boldLabel("Taxisentral")));          
+        $("#localparams").append(addGridRow("b", taxisentral));
+
+        $("#localparams").append(addGridRow("a", boldLabel("Løyvenr")));          
+        $("#localparams").append(addGridRow("b", loyvenr));
+
+        $("#localparams").append(addGridRow("a", boldLabel("Navn")));          
+        $("#localparams").append(addGridRow("b", navn));
+
+        $("#localparams").append(addGridRow("a", boldLabel("Mobnr")));          
+        $("#localparams").append(addGridRow("b", mobnr));
+
+        $("#localparams").append(addGridRow("a", boldLabel("Status")));          
+        $("#localparams").append(addGridRow("b", status));
+    }	
+	</script>
+	
 </head>
 	
 <body>
 
-  <div data-role="page" id="home">
-    <div data-role="header" data-theme="b" data-position="fixed">
-      <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-      <h1>Share QR</h1>
-      <a href="#addurl" data-icon="plus">Add URL</a>
+<!---------------------------------- Main Page --------------------------------------->
+<div data-role="page" id="main">
+    <div data-role="header" data-position="fixed">
+        <h1 id="appTitle">TaxiHike 1.0.3</h1>
     </div>
-    <div data-role="content">
+    <div data-role="content">   
+		<ul data-role="listview" data-inset="true" data-filter="true">
+			<li><a href="#page2" >Aktivering</a></li>
+			<li><a href="#page3" >Parametere</a></li>
+		</ul>
     </div>
-    <div data-role="footer" class="ui-bar" data-theme="b" data-position="fixed" data-id="footer">
-      <a href="#about" data-icon="info">About</a>
-    </div>
-  </div>
+</div>
 
-  <div data-role="page" id="qrcode">
-    <div data-role="header" data-theme="b" data-position="fixed">
-      <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-      <h1>QR Code</h1>
-      <a href="#home" data-icon="arrow-l" data-rel="back">Back</a>
+<!---------------------------------- Notification ------------------------------------>
+<div data-role="page" id="page2">
+    <div data-role="header">
+		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
+        <h1>Aktiveringskode</h1>
     </div>
-    <div data-role="content">
-    </div>
-    <div data-role="footer" class="ui-bar" data-theme="b" data-position="fixed" data-id="footer">
-    <a href="#about" data-icon="info">About</a>
-    </div>
-  </div>
+	<div data-role="content">
+		<div id="addContactProperties"></div>
+		<div data-role="fieldcontain" class="ui-hide-label">
+			<form>
+				<label for="kode">Aktiveringskode</label>
+				<input type="text" name="kode" id="kode" value="" placeholder="Kode"/>
+			</form>
+		</div>              
+		<button onclick="init_app();">Aktiver</button>
+	</div>
+</div>
 
-  <div data-role="page" id="addurl">
-    <div data-role="header" data-theme="b" data-position="fixed">
-      <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-      <h1>Add URL</h1>
-      <a href="#home" data-icon="arrow-l" data-rel="back">Back</a>
+<div data-role="page" id="page3">
+    <div data-role="header">
+		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
+        <h1>Parametere</h1>
     </div>
-    <div data-role="content">
-      <form action="#home" method="POST" name="addurl" id="addurl">
-        <div data-role="fieldcontain">
-          <label for="url">URL:</label>
-          <input type="url" name="url" id="url" value="http://" />
-          <button>Add</button>
-        </div>
-      </form>
-    </div>
-    <div data-role="footer" class="ui-bar" data-theme="b" data-position="fixed" data-id="footer">
-      <a href="#about" data-icon="info">About</a>
-    </div>
-  </div>
-  
-  <div data-role="page" id="delurl">
-    <div data-role="header" data-theme="b" data-position="fixed">
-      <h1>Delete URL?</h1>
-    </div>
-    <div data-role="content">
-      <p class="center" id="url_prompt">url</p>
-      <form action="#home" method="POST" name="delurl" id="delurl">
-        <div data-role="fieldcontain">
-          <input type="hidden" name="url_value" id="url_value" value="url" />
-          <fieldset class="ui-grid-a">
-            <div class="ui-block-a">
-              <a href="#home" data-role="button" class="ui-submit" data-rel="back" data-direction="reverse">Cancel</a>
-            </div>
-            <div class="ui-block-b">
-              <input type="submit" value="Delete" />
-            </div>
-          </fieldset>
-        </div>
-      </form>
-    </div>
-    <div data-role="footer" class="ui-bar" data-theme="b" data-position="fixed" data-id="footer">
-    </div>  
-  </div> 	
-
-  <div data-role="page" id="about">
-    <div data-role="header" data-theme="b" data-position="fixed">
-      <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-      <h1>About</h1>
-      <a href="#home" data-icon="arrow-l" data-rel="back">Back</a> 
-    </div>
-    <div data-role="content">
-      <p>Share your favorite URLs with other mobile phone users through QR codes.</p>
-    </div>
-    <div data-role="footer" class="ui-bar" data-theme="b" data-position="fixed" data-id="footer">
-      <a href="#about" data-icon="info">About</a>
-    </div>
-  </div>
-
-</body>
+	<div data-role="content">		
+        <div id="localparams" class="mesgBox ui-grid-a">
+			<!-- dynamic content here -->content...
+		</div>		
+	</div>
+</div>
+	
+</body>	
 </html>
-
