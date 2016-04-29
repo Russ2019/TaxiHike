@@ -9,6 +9,8 @@
 
     <name>TaxiHike 1.0.2</name>
     
+    <preference name="SplashScreen" value="splash" />
+    
     <preference name="phonegap-version" value="3.0.0" />
     <access origin="*" />
     <allow-navigation href="*" />
