@@ -1,140 +1,118 @@
+
 <!DOCTYPE html>
-<html>
-<title>&nbsp;</title>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	
-    <script type="text/javascript" src="js/taxihike.js"></script>
-	<style>
-		.mesgBox { 
-			border-radius: 8px;
-			border: 1px solid black;
-			padding: 20px; 
-			}
-	</style>
-	<script>
-		var app_activated = local_var('appid');
-		if (app_activated) {
-			window.location.href = "mal.html";
-		}
-	</script>
-	<script>
-		$(document).bind("mobileinit", function(){
-		  //To override default settings, bind to mobileinit.
-		  $.mobile.defaultPageTransition = "none";
-		});	
-	</script>
-	<script>
-		$( document ).on( "pageinit", "#page3", function( event ) {
-		  //alert( "page3 init" );
-		  showLocalParams();
-		});	
-	</script>
-	
-	</script>
-	<script>
-	function showLocalParams() {
-		var appid = local_var('appid');
-		var pgid = local_var('pgid');
-		var uid = local_var('uid');
-		var srvc = local_var('srvc');
-		//var navn = local_var('navn');
-		var navn = 'Taxi';
-		//var mobnr = local_var('mobnr');
-		var mobnr = '93470093';
-		//var taxisentral = local_var('taxisentral');
-		var taxisentral = 'Asker & Bærum Taxi';
-		//var loyvenr = local_var('loyvenr');
-		var loyvenr = 'C-93';
-		//var status = local_var('status');
-		var status = 'Aktiv';
-		
-        $("#localparams").empty();
-        
-        //$("#localparams").append(addGridRow("a", boldLabel(colrText("red", "col a"))));          
-        //$("#localparams").append(addGridRow("b", "col b"));
-
-        $("#localparams").append(addGridRow("a", boldLabel("appid")));          
-        $("#localparams").append(addGridRow("b", appid));
-		
-        $("#localparams").append(addGridRow("a", boldLabel("pgid")));          
-        $("#localparams").append(addGridRow("b", pgid));
-
-        $("#localparams").append(addGridRow("a", boldLabel("srvc")));          
-        $("#localparams").append(addGridRow("b", srvc));
-
-        $("#localparams").append(addGridRow("a", boldLabel("uid")));          
-        $("#localparams").append(addGridRow("b", uid));
-
-        $("#localparams").append(addGridRow("a", boldLabel("Taxisentral")));          
-        $("#localparams").append(addGridRow("b", taxisentral));
-
-        $("#localparams").append(addGridRow("a", boldLabel("Løyvenr")));          
-        $("#localparams").append(addGridRow("b", loyvenr));
-
-        $("#localparams").append(addGridRow("a", boldLabel("Navn")));          
-        $("#localparams").append(addGridRow("b", navn));
-
-        $("#localparams").append(addGridRow("a", boldLabel("Mobnr")));          
-        $("#localparams").append(addGridRow("b", mobnr));
-
-        $("#localparams").append(addGridRow("a", boldLabel("Status")));          
-        $("#localparams").append(addGridRow("b", status));
-    }	
-	</script>
-	
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+	.nav-tabs {
+		margin-left: -15px;
+		margin-right: -15px;
+		background-color: #278ece;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.nav-tabs > li > a {
+		margin: 0;
+		padding: 15px 20px;
+		color: white;
+	}
+	.nav-tabs > li.active > a {
+		background-color: white;
+		border: 1px solid transparent;
+	}	
+	.nav-tabs > li > a:hover {
+		background-color: #278ece;
+		color: cyan;
+		border: 1px solid transparent;
+	}	
+	.nav-tabs > li.right {
+		float: right;
+	}	
+	.tittel {
+		text-align: center;
+		margin: 30px 0 0 0;
+		color: #278ece;
+		font-size: 36px;
+		font-weight: bold;
+		line-height: 40px;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.tittel_sub {
+		text-align: center;
+		margin: 2px 0 0 0;
+		color: #2875a6;
+		font-size: 14px;
+		font-weight: normal;
+		line-height: 40px;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.banner {
+		background-color: black;
+		color: white;
+		padding: 0 5px;
+		height: 22px;
+	}
+	.glyphicon.glyphicon {
+		font-size: 18px;
+	}	
+	/**
+	.glyphicon.glyphicon-user {
+		font-size: 20px;
+	}	
+	**/
+  </style>
 </head>
-	
+
+
 <body>
 
-<!---------------------------------- Main Page --------------------------------------->
-<div data-role="page" id="main">
-    <div data-role="header" data-position="fixed">
-        <h1 id="appTitle">TaxiHike 1.0.3</h1>
-    </div>
-    <div data-role="content">   
-		<ul data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="#page2" >Aktivering</a></li>
-			<li><a href="#page3" >Parametere</a></li>
+	<div class="banner">
+		<span style="float: left;">dette er left test</span>
+		<span style="float: right;">dette er right test</span>
+	</div>  
+	<div class="container-fluid">  
+		<ul class="nav nav-tabs">
+			<li><a data-toggle="tab" href="#menu1"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a></li>
+			<li class="right"><a data-toggle="tab" href="#user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+			<li class="right"><a data-toggle="tab" href="#cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+			<li class="right"><a data-toggle="tab" href="#home"><span class="glyphicon glyphicon-home" aria-hidden="true"></a></li>
 		</ul>
-    </div>
-</div>
+		
+		<div class="tittel">Bokmarkedet</div>
+		<div class="tittel_sub">Markedsplassen p&aring; nettet!</div>
+		
+		<div class="tab-content">	
+			<div id="menu1" class="tab-pane fade">
+				<h3>Menu 1</h3>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+			
+			<div id="menu2" class="tab-pane fade">
+				<h3>Menu 2</h3>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+			</div>
+			
+			<div id="user" class="tab-pane fade">
+				<h3>User</h3>
+				<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+			</div>		
 
-<!---------------------------------- Notification ------------------------------------>
-<div data-role="page" id="page2">
-    <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
-        <h1>Aktiveringskode</h1>
-    </div>
-	<div data-role="content">
-		<div id="addContactProperties"></div>
-		<div data-role="fieldcontain" class="ui-hide-label">
-			<form>
-				<label for="kode">Aktiveringskode</label>
-				<input type="text" name="kode" id="kode" value="" placeholder="Kode"/>
-			</form>
-		</div>              
-		<button onclick="init_app();">Aktiver</button>
-	</div>
-</div>
+			<div id="home" class="tab-pane fade">
+				<h3>Home</h3>
+				<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+			</div>		
 
-<div data-role="page" id="page3">
-    <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
-        <h1>Parametere</h1>
-    </div>
-	<div data-role="content">		
-        <div id="localparams" class="mesgBox ui-grid-a">
-			<!-- dynamic content here -->content...
-		</div>		
+			<div id="cart" class="tab-pane fade">
+				<h3>Shopping cart</h3>
+				<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+			</div>		
+		</div>
 	</div>
-</div>
-	
-</body>	
+
+</body>
 </html>
