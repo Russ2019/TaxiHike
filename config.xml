@@ -10,12 +10,6 @@
     <name>TaxiHike v1.0.6</name>
     
     <preference name="SplashScreen" value="screen" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
-    <preference name="SplashScreenDelay" value="1000" />
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" width="640" height="960" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" width="640" height="960" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" width="640" height="960" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" width="640" height="960" />
     <gap:splash src="splash.png" />
     
     <!-- Default application icon -->
