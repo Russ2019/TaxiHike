@@ -26,6 +26,10 @@
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
 
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.Notification" />
+    </feature>
+
     <description>
        Beskrivelse. 
     </description>
