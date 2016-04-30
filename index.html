@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Device Ready Example</title>
+    <title>Notification Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
     // Wait for device API libraries to load
     //
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
+    document.addEventListener("deviceready", onDeviceReady, false);
 
     // device APIs are available
     //
     function onDeviceReady() {
-        // Now safe to use device APIs
-        alert('device ready!');
-        beepNotification();
+        // Empty
     }
-    
-    function beepNotification() {
-		    navigator.notification.beep(3); 
-		}
+
+    // Show a custom alert
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    // Beep three times
+    //
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+    // Vibrate for 2 seconds
+    //
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
 
     </script>
   </head>
-  <body onload="onLoad()">
+  <body>
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
   </body>
 </html>
-pause
