@@ -17,7 +17,12 @@
     function onDeviceReady() {
         // Now safe to use device APIs
         alert('device ready!');
+        beepNotification();
     }
+    
+    function beepNotification() {
+		    navigator.notification.beep(3); 
+		}
 
     </script>
   </head>
