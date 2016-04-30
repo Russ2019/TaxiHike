@@ -26,7 +26,7 @@
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
 
-    <gap:plugin name="org.apache.cordova.core.Notification" />
+    <plugin name="Notification" value="org.apache.cordova.Notification"/>
     <gap:plugin name="org.apache.cordova.core.vibration" />
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.Notification" />
