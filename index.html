@@ -79,14 +79,10 @@
 		navigator.notification.vibrate(1000);
 	}
 	
-	var timerObject = {
-		interval_id : null
-	}
-	
-    	//$(document).on('pageinit', '#page1', function(){   
+
+    	//https://github.com/katzer/cordova-plugin-background-mode
 	$(document).on('pagebeforeshow', '#page1', function(){   
-            //setInterval(myBeeper, 7000);
-            timerObject.interval_id = setInterval(function() {myBeeper()}, 7000);
+            setInterval(myBeeper, 7000);
     	});
 
 	function myBeeper() {
