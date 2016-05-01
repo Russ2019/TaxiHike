@@ -89,6 +89,11 @@
 	    // Enable background mode
 	    cordova.plugins.backgroundMode.enable();
 	}, false);
+	
+	 cordova.plugins.backgroundMode.onactivate = function () {
+	        setInterval(myBeeper2}, 5000);
+	    }
+	}, false);	
 
 
 	$(document).on('pagebeforeshow', '#page1', function(){   
@@ -97,6 +102,11 @@
 
 	function myBeeper() {
 		navigator.notification.beep(1);
+		//navigator.notification.vibrate(1000);
+	}
+
+	function myBeeper2() {
+		navigator.notification.beep(2);
 		//navigator.notification.vibrate(1000);
 	}
 
