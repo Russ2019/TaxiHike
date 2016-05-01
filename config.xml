@@ -25,6 +25,8 @@
     <access origin="*" />
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
+    
+    <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.3" />
 
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
     <gap:plugin name="org.apache.cordova.core.dialogs" />
