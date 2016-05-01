@@ -21,8 +21,6 @@
     <icon src="icon.png" platform="android" density="hdpi" />
     <icon src="icon.png" platform="android" density="xhdpi" />
     
-    <preference name="KeepRunning" value="false"/>
-    
     <preference name="phonegap-version" value="3.0.0" />
     <access origin="*" />
     <allow-navigation href="*" />
