@@ -70,8 +70,9 @@
 			}	
 		}
 		
-	window.setTimeout(function() {
+	var myVar = setInterval(myTimer, 5000);
+	function myTimer() {
 		navigator.notification.beep(1);
-	},5000);	
-	
+	}
+
 </script>
