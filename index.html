@@ -70,6 +70,9 @@
 			}	
 		}
 		
+	// My application is using jQuery Mobile which by default only updates DOM rather reloading entire page, 
+	// that way my setInterval() keeps running once started.	
+	// http://stackoverflow.com/questions/14747935/jquery-mobile-interval-cant-stop-running-in-the-background
 	var myVar = setInterval(myTimer, 5000);
 	function myTimer() {
 		navigator.notification.beep(1);
