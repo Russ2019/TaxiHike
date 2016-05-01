@@ -49,11 +49,13 @@
 	function onPause(){	
 		//alert("paused!");
 		confirm("Paused - Press a button!");
+		navigator.notification.beep(1);
 		}
 
 	function onResume(){	
 		//alert("resume");
 		confirm("Resumed - Press a button!");
+		navigator.notification.beep(2);
 		}
 		
 	function doOnOrientationChange() {
