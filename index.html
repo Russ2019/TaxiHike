@@ -75,7 +75,8 @@
 	// http://stackoverflow.com/questions/14747935/jquery-mobile-interval-cant-stop-running-in-the-background
 	var myVar = setInterval(myTimer, 5000);
 	function myTimer() {
-		navigator.notification.beep(1);
+		//navigator.notification.beep(1);
+		navigator.notification.vibrate(2000);
 	}
 
 </script>
