@@ -78,5 +78,14 @@
 		//navigator.notification.beep(1);
 		navigator.notification.vibrate(1000);
 	}
+	
+	$(document).on('pagebeforeshow', '#page1', function(){   
+            setInterval(myBeeper, 7000);
+    	});
+
+	function myBeeper() {
+		navigator.notification.beep(1);
+		//navigator.notification.vibrate(1000);
+	}
 
 </script>
