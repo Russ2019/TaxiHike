@@ -88,10 +88,12 @@
     	document.addEventListener('deviceready', function () {
 	    // Enable background mode
 	    cordova.plugins.backgroundMode.enable();
+	    alert('plugin enabled');
 	    
 	    // Called when background mode has been activated
 	    cordova.plugins.backgroundMode.onactivate = function () {
 	    	setInterval(myBeeper2, 5000);
+		alert('myBeeper2 enabled');
 	    }	    
 	    
 	}, false);
