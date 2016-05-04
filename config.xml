@@ -26,6 +26,7 @@
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
     
+    <gap:plugin name="org.apache.cordova.device" version="0.2.3" />
     <plugin name="cordova-plugin-background-mode" source="npm" />
 
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
