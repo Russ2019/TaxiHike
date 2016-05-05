@@ -44,6 +44,8 @@
         iTorget 
     </author>
 
+<gap:plugin name="cordova-plugin-mauron85-background-geolocation-phonegapbuild" source="npm"/>
+
      <!-- to enable individual permissions use the following examples -->
      <feature name="http://api.phonegap.com/1.0/geolocation"/>
 
