@@ -2,12 +2,12 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.taxihike"
-        versionCode = "114" 
-        version     = "1.1.4" >
+        versionCode = "115" 
+        version     = "1.1.5" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>TaxiHike v1.1.4</name>
+    <name>TaxiHike v1.1.5</name>
     
     <!-- Default application icon -->
     <icon src="icon.png" />
@@ -28,8 +28,7 @@
     
     <gap:plugin name="org.apache.cordova.device" version="0.2.3" />
     <plugin name="cordova-plugin-background-mode" source="npm" />
-
-<plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
+    <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
 
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
     <gap:plugin name="org.apache.cordova.core.dialogs" />
