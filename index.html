@@ -44,7 +44,6 @@
 			//lastmarker = marker;	
 			//markers.push(marker);		ingen PUSH!
 			}	
-
 		//--------------------------------------------------------------
 		
 		function initialize() {
@@ -58,7 +57,6 @@
     
 			GeoMarker = new GeolocationMarker();
 			GeoMarker.setCircleOptions({fillColor: '#808080'});
-
 			google.maps.event.addListener(GeoMarker, 'position_changed', function() {
 				var len = markers.length;
 				var oldZoom = map.getZoom();
@@ -112,7 +110,6 @@
 					} // sampling						
 	
 				}); // position_changed
-
 				
 			google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
 				alert('There was an error obtaining your position. Message: ' + e.message);
@@ -122,7 +119,6 @@
 			
 				
 			} // initialize
-
 		google.maps.event.addDomListener(window, 'load', initialize);
       
 		if(!navigator.geolocation) {
@@ -131,7 +127,6 @@
 	</script>
 	
 <script>
-
 </script>
 	
 </head>
@@ -140,33 +135,49 @@
 	<div data-role="page" id="page1">
 		<div data-role="panel" id="myPanel-r" data-display="overlay" data-position="right" data-theme="c">
 			<ul data-role="listview" data-theme="d" data-icon="false">
-				<li data-icon="delete" data-theme="b"><a href="#" data-rel="close">Tracking</a></li>
-				<li data-icon="arrow-r"><a href="#">Start</a></li>
-				<li data-icon="delete"><a href="#" data-transition="flip">Stopp</a></li>
-				<li><a href="#">To</a></li>
-				<li><a href="#">Tre</a></li>
+				<li id="hdr" data-icon="delete" data-theme="b"><a href="#" data-rel="close">Tracking</a></li>
+				<li id="siste" data-icon="check"><a href="#">Siste posisjon</a></li>
+				<li id="alle" data-icon=""><a href="#">Alle posisjoner</a></li>
+				<li id="linje" data-icon=""><a href="#">Linje</a></li>
+				<li id="tabell" data-icon=""><a href="#page2">Tabell</a></li>
 			</ul>
 		</div><!-- /panel -->
 				
 			
 		<div data-theme="a" data-role="header">
 			<a data-rel="back" data-ajax="false" data-icon="arrow-l">Tilbake</a>
-			<h3>Page Header</h3>
-			<a href="#myPanel-r" class="jqm-navmenu-link" data-icon="bars" data-iconpos="notext">Navigation</a>
+			<h3>Min Posisjon</h3>
+			<a href="#myPanel-r" class="jqm-navmenu-link" data-icon="bars" data-iconpos="notext">Vis</a>
 		</div>
 		
 		<div data-role="content" id="content">
-			<div id="result" style="height:20px; background-color:lightgray; padding-left:10px;">Tracking...</div>
+			<div id="result" style="height:20px; background-color:#666; color:white;padding-left:10px; font-size: 90%;">Tracking...</div>
 			<div id="map_canvas" style="height:100%"></div>
 		</div>
 		
 		<div data-theme="a" data-role="footer" data-position="fixed">
-			<a class="ui-btn-left" data-icon="home" data-ajax="false" href="main_1.php">Hjem</a>
-			<h3>Page Header</h3>
-			<a class="ui-btn-right" data-icon="" href="">Hjelp</a>
+			<a class="ui-btn-left" data-icon="arrow-r" href="">Start</a>
+			<h3>Tracking</h3>
+			<a class="ui-btn-right" data-icon="delete" href="">Stopp</a>
 		</div>
 	</div>	
+	
+	
+	<div data-role="page" id="page2">
+		<div data-theme="a" data-role="header">
+			<a data-rel="back" data-ajax="false" data-icon="arrow-l">Tilbake</a>
+			<h3>Page Header</h3>
+		</div>
+		
+		<div data-role="content" id="content2">
+			content...
+		</div>
+		
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<h3>Page Footer</h3>
+		</div>
+	</div>	
+
 </body>
 
 </html>
-
