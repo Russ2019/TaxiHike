@@ -24,6 +24,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
     <script>
+		/* http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/docs/reference.html */
+		/* http://stackoverflow.com/questions/2564320/adding-ids-to-google-map-markers  - dynamically add title */
+		/* GeoMarker.set('title', 'I might be here'); */
+		/* GeoMarker.set('title', ''); */
 		var sampling = 0;
 		var markers = [];
 		var map, GeoMarker, lastmarker;
@@ -145,6 +149,7 @@
 			});
 			$("#start").click(function(){
 				alert('start');
+				GeoMarker.set('title', 'I might be here');
 			});
 			$("#stop").click(function(){
 				alert('stop');
