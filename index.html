@@ -25,86 +25,104 @@
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=true"></script> -->
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>	
     <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
-	<script type="text/javascript">
-        // you can specify the default lat long
-        var map,
-            currentPositionMarker,
-            mapCenter = new google.maps.LatLng(14.668626, 121.24295),
-            map;
+<script type="text/javascript">
 
-        // change the zoom if you want
-        function initializeMap()
-        {
-            map = new google.maps.Map(document.getElementById('map_canvas'), {
-               zoom: 18,
-               center: mapCenter,
-               mapTypeId: google.maps.MapTypeId.ROADMAP
-             });
-        }
+            var map,
+                currentPositionMarker,
+                mapCenter = new google.maps.LatLng(40.700683, -73.925972),
+                map;
 
-        function locError(error) {
-            // tell the user if the current position could not be located
-            alert("The current position could not be found!");
-        }
-
-        // current position of the user
-        function setCurrentPosition(pos) {
-            currentPositionMarker = new google.maps.Marker({
-                map: map,
-                position: new google.maps.LatLng(
-                    pos.coords.latitude,
-                    pos.coords.longitude
-                ),
-                title: "Current Position"
-            });
-            map.panTo(new google.maps.LatLng(
-                    pos.coords.latitude,
-                    pos.coords.longitude
-                ));
-        }
-
-        function displayAndWatch(position) {
-        
-            // set current position
-            setCurrentPosition(position);
-            
-            // watch position
-            watchCurrentPosition();
-        }
-
-        function watchCurrentPosition() {
-            var positionTimer = navigator.geolocation.watchPosition(
-                function (position) {
-                    setMarkerPosition(
-                        currentPositionMarker,
-                        position
-                    );
-                });
-        }
-
-        function setMarkerPosition(marker, position) {
-            marker.setPosition(
-                new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude)
-            );
-        }
-
-        function initLocationProcedure() {
-            initializeMap();
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(displayAndWatch, locError);
-            } else {
-                // tell the user if a browser doesn't support this amazing API
-                alert("Your browser does not support the Geolocation API!");
+            function initializeMap()
+            {
+                map = new google.maps.Map(document.getElementById('map_canvas'), {
+                   zoom: 13,
+                   center: mapCenter,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP
+                 });
             }
-        }
 
-        // initialize with a little help of jQuery
-        $(document).ready(function() {
-            initLocationProcedure();
-        });
-    </script>
+            function locError(error) {
+                // the current position could not be located
+                alert("The current position could not be found!");
+            }
+
+            function setCurrentPosition(pos) {
+                currentPositionMarker = new google.maps.Marker({
+                    map: map,
+                    position: new google.maps.LatLng(
+                        pos.coords.latitude,
+                        pos.coords.longitude
+                    ),
+                    title: "Current Position"
+                });
+                map.panTo(new google.maps.LatLng(
+                        pos.coords.latitude,
+                        pos.coords.longitude
+                    ));
+            }
+
+            function displayAndWatch(position) {
+                // set current position
+                setCurrentPosition(position);
+                // watch position
+                watchCurrentPosition();
+            }
+
+            function watchCurrentPosition() {
+                var positionTimer = navigator.geolocation.watchPosition(
+                    function (position) {
+                        setMarkerPosition(
+                            currentPositionMarker,
+                            position
+                        );
+                    });
+            }
+
+            function setMarkerPosition(marker, position) {
+                marker.setPosition(
+                    new google.maps.LatLng(
+                        position.coords.latitude,
+                        position.coords.longitude)
+                );
+            }
+
+            function initLocationProcedure() {
+                initializeMap();
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(displayAndWatch, locError);
+                } else {
+                    alert("Your browser does not support the Geolocation API");
+                }
+            }
+
+            $(document).ready(function() {
+                initLocationProcedure();
+            });
+
+        </script>
+
+		<script>
+		$(document).ready(function(){
+			$("#siste").click(function(){
+				alert('siste');
+				$( "#myPanel-r" ).panel( "close" );
+			});
+			$("#alle").click(function(){
+				alert('alle');
+				$( "#myPanel-r" ).panel( "close" );
+			});
+			$("#linje").click(function(){
+				alert('linje');
+				$( "#myPanel-r" ).panel( "close" );
+			});
+			$("#start").click(function(){
+				alert('start');
+			});
+			$("#stop").click(function(){
+				alert('stop');
+			});
+		});
+	</script>
 	
 </head>
 	
