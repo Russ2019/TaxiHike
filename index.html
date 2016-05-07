@@ -51,7 +51,7 @@
 		}
 		/* get the container that's just outside the marker image, 
 			which just happens to have our Marker title in it */
-		#map_canvas div.gmnoprint[title="I might be here"] {
+		#map_canvas div.gmnoprint[title="Current location"] {
 			-moz-animation: pulsate 1.5s ease-in-out infinite;
 			-webkit-animation: pulsate 1.5s ease-in-out infinite;
 			border:1pt solid #fff;
@@ -74,12 +74,12 @@
 		
 		/*	hide the superfluous marker image since it would expand and shrink with its containing element */
 		/*	#map_canvas div[style*="987654"][title] img {*/
-		#map_canvas div.gmnoprint[title="I might be here"] img {
+		#map_canvas div.gmnoprint[title="Current location"] img {
 			display:none;
 		}
 		/* compensate for iPhone and Android devices with high DPI, add iPad media query */
 		@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (device-width: 768px) {
-			#map_canvas div.gmnoprint[title="I might be here"] {
+			#map_canvas div.gmnoprint[title="Current location"] {
 				margin:-10px 0 0 -10px;
 			}
 		}
@@ -92,7 +92,7 @@
     <script>
 		/* http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/docs/reference.html */
 		/* http://stackoverflow.com/questions/2564320/adding-ids-to-google-map-markers  - dynamically add title */
-		/* GeoMarker.set('title', 'I might be here'); */
+		/* GeoMarker.set('title', 'Current location'); */
 		/* GeoMarker.set('title', ''); */
 		var sampling = 0;
 		var markers = [];
@@ -215,7 +215,7 @@
 			});
 			$("#start").click(function(){
 				alert('start');
-				GeoMarker.set('title', 'I might be here');
+				//GeoMarker.set('title', 'Current location');
 			});
 			$("#stop").click(function(){
 				alert('stop');
