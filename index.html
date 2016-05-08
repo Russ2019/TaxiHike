@@ -8,7 +8,30 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>	
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 				
-
+	<script type="text/javascript" charset="utf-8"> 
+		function boldLabel(str) {
+			return '<b>' +str+ '</b>';
+			}
+			
+		function textFormat(a) {
+			return String(a);
+			}
+			
+		function colrText(colr, txt) {
+			return '<span style="color: '+colr+'">'+txt+'</span>';
+			}
+			
+		function addGridRow(col, str) {
+			/*
+			<div class="ui-grid-a">
+				<div class="ui-block-a">text inside a</div>
+				<div class="ui-block-b">text inside b</div>
+			</div><!-- /grid-a -->
+			*/			
+			return('<div class="ui-block-'+col+'">'+str+'</div>');
+			}			
+	</script>
+	
 	<script type="text/javascript" charset="utf-8"> 
 		//*********************************************************    
 		// Geolocation Capabilities
