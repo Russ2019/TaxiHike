@@ -18,13 +18,13 @@
 		//bottom : 40px !important;  
 		bottom : 0px !important;  
 		left : 0 !important;     
-		}
+		}		
 	</style>
 	
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=true"></script> -->
-	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>	
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
     <script>
+		var active = 1;
 		var sampling = 0;
 		var markers = [];
 		var map, GeoMarker, lastmarker;
@@ -36,14 +36,12 @@
 			return(loc);
 			}
 			
-		// place marker, push
+		// place marker
 		function createmarker(location) {
 			var marker = new google.maps.Marker({
 				position: location,
 				map: map,
 				});
-			//lastmarker = marker;	
-			//markers.push(marker);		ingen PUSH!
 			}	
 
 		//--------------------------------------------------------------
@@ -62,47 +60,22 @@
 
 			google.maps.event.addListener(GeoMarker, 'position_changed', function() {
 				var len = markers.length;
-				var oldZoom = map.getZoom();
-				if (oldZoom > 16) { /*oldZoom = 16;*/ }
+				var oldZoom = map.getZoom(); // hent map.zoom, hvis over
+				if (oldZoom > 16) { /* do nothing! */ }
 				
-				// fitBounds when there was many points, and setCenter+setZoom when there was only one point.
-				if (len > 1) {
-					// dette fungerer ikke - zoomer helt inn!
-					map.fitBounds(this.getBounds());
-					/****
-					var bounds = new google.maps.LatLngBounds();
-					bounds.extend(position_1);
-					bounds.extend(position_2);
-					map.fitBounds(bounds);
-					****/
-					}
-				else {
-					// dette fungerer - riktig zoom (løsning - ikke push til markers)
-					//alert('len 1'); - kommer alltid hit!!!
-					
-					/**
-					if (sampling == 0) { 
-						// KUN 1. gangen!, ellers vises kart i australia
-						// kommenter ut if statement hvis kart skal sentreres ved hvert nytt punkt!
-						map.setCenter(this.getPosition()); 
-						}
-					**/
-					
-					map.setCenter(this.getPosition());  //nytt senter ved ny lokasjon istedenfor if over!
-					map.setZoom(oldZoom);
-					}
+				// - setCenter+setZoom on new point.
+				map.setCenter(this.getPosition());  
+				map.setZoom(oldZoom);
 					
 				// sampling
-				if (sampling == 0) {
+				if (sampling == 0 && active == 1) {
 					sampling = 1;
 					
-					//var prevZoom = map.getZoom();
 					var pos = GeoMarker.getPosition();
 					var lat = pos.lat();
 					var lng = pos.lng();
 					var loc = pt2location(lat, lng);
 					createmarker(loc);
-					//map.setZoom(prevZoom);
 					
 					// timeout to next sampling
 					google.maps.event.addListenerOnce(map,'idle',function() {
@@ -129,7 +102,7 @@
 		if(!navigator.geolocation) {
 			alert('Your browser does not support geolocation');
 		}
-	</script>	
+	</script>
 	<script>
 		$(document).ready(function(){
 			$("#siste").click(function(){
@@ -146,12 +119,17 @@
 			});
 			$("#start").click(function(){
 				alert('start');
+				active = 1;
+				$('#result').text('tracking started!');
 			});
 			$("#stop").click(function(){
 				alert('stop');
+				active = 0;
+				$('#result').text('tracking stopped!');
 			});
 		});
 	</script>
+	
 	
 </head>
 	
@@ -205,3 +183,4 @@
 </body>
 
 </html>
+
