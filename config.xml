@@ -27,10 +27,12 @@
     <uses-permission name="permission.INTERNET" />
     
     <plugin name="cordova-plugin-background-mode" source="npm" />
+    <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
 
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
     <gap:plugin name="org.apache.cordova.core.dialogs" />
     <gap:plugin name="org.apache.cordova.core.vibration" />
+	
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.Notification" />
     </feature>
