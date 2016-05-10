@@ -144,13 +144,15 @@
 			$("#start").click(function(){
 				alert('start');
 				active = 1;
+				geocoder.setMap(map);
 				$('#result').text('tracking started!');
 			});
 			$("#stop").click(function(){
 				alert('stop');
 				active = 0;
 				//navigator.geolocation.clearWatch(geocoder);		//virker dette???
-				navigator.geolocation.clearWatch(geocoder.e);		//virker dette???
+				//navigator.geolocation.clearWatch(geocoder.e);		//virker dette???
+				geocoder.setMap(null);
 				$('#result').text('tracking stopped!');
 			});
 		});
