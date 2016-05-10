@@ -1,117 +1,261 @@
 <!DOCTYPE html>
 <html>
-	<title>&nbsp;</title>
-	<head>
+<title>&nbsp;</title>
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />	
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>	
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
-	</head>
-	<body>
-		<!-- Start of first page I -->
-		<div data-role="page" id="page1">
-			<!-- Header -->
-			<div data-role="header">
-				<h1>Phonegap Template &amp;</h1>
-
-			</div>
-			<!-- /header -->
-			<!-- Content    -->
-			<div data-role="content">
-				<h3>Content</h3>
-				<p>
-					Blah blah blah blah
-				</p>
-			</div>
-			<!-- /content -->
-			<!-- footer -->
-			<div data-role="footer">
-				<h4>&copy; 2013 Your Name</h4>
-			</div>
-			<!-- /footer -->
-		</div>
-		<!-- /page -->
-	</body>
-</html>
-<script>
-	document.addEventListener("deviceready", onDeviceReady, false);
-	window.addEventListener('orientationchange', doOnOrientationChange);
-	function onDeviceReady() {
-		document.addEventListener("pause", onPause, false);
-		document.addEventListener("resume", onResume, false);
-		alert("Device is Ready");
-	}
-	function onPause(){	
-		//alert("paused!");
-		confirm("Paused - Press a button!");
-		navigator.notification.beep(1);
-		}
-	function onResume(){	
-		//alert("resume");
-		confirm("Resumed - Press a button!");
-		navigator.notification.beep(2);
-		}
-		
-	function doOnOrientationChange() {
-		switch(window.orientation) {  
-			case -90:
-			case 90:
-				alert('landscape');
-				break; 
-			default:
-				alert('portrait');
-				break; 
-			}	
-		}
-		
-	// My application is using jQuery Mobile which by default only updates DOM rather reloading entire page, 
-	// that way my setInterval() keeps running once started.	
-	// http://stackoverflow.com/questions/14747935/jquery-mobile-interval-cant-stop-running-in-the-background
-	var myVar = setInterval(myTimer, 5000);
-	function myTimer() {
-		//navigator.notification.beep(1);
-		navigator.notification.vibrate(1000);
-	}
+				
+	<style>
+		.mesgBox { 
+			border-radius: 8px;
+			border: 1px solid black;
+			padding: 20px; 
+			}
+	</style>
+	<script type="text/javascript" charset="utf-8"> 
+		function boldLabel(str) {
+			return '<b>' +str+ '</b>';
+			}
+			
+		function textFormat(a) {
+			return String(a);
+			}
+			
+		function colrText(colr, txt) {
+			return '<span style="color: '+colr+'">'+txt+'</span>';
+			}
+			
+		function addGridRow(col, str) {
+			/*
+			<div class="ui-grid-a">
+				<div class="ui-block-a">text inside a</div>
+				<div class="ui-block-b">text inside b</div>
+			</div><!-- /grid-a -->
+			*/			
+			return('<div class="ui-block-'+col+'">'+str+'</div>');
+			}			
+	</script>
 	
-    	//https://github.com/katzer/cordova-plugin-background-mode
-    	//<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.3" />
-    	//cordova.plugins.backgroundMode.enable();
-    	
-    	//cordova.plugins.backgroundMode.enable();
-    	document.addEventListener('deviceready', function () {
-	    cordova.plugins.backgroundMode.setDefaults({ text:'Doing heavy tasks.'});
-	    
-	    // Enable background mode
-	    cordova.plugins.backgroundMode.enable();
-	    alert('plugin enabled');
-	    
-	    // Called when background mode has been activated
-	    cordova.plugins.backgroundMode.onactivate = function () {
-	        setTimeout(function () {
-	            // Modify the currently displayed notification
-	            cordova.plugins.backgroundMode.configure({
-	                text:'Running in background for more than 5s now.'
-	            });
-	        }, 5000);
-	        alert('done');
-	    }
+	<script type="text/javascript" charset="utf-8"> 
+		//*********************************************************    
+		// Geolocation Capabilities
+		//*********************************************************
+		var geolocationInt;
+		
+		function updateGeolocationStatus(status) {
+			$("#geolocationStatus").empty();
+			$("#geolocationStatus").append(status);
+		}
+		
+		function geolocationSuccess(position) {
+			$("#geolocationProperties").empty();
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Latitude:")));          
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.latitude)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Longitude:")));         
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.longitude)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Altitude:")));          
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.altitude)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Accuracy:")));          
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.accuracy)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Altitude Accuracy:"))); 
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.altitudeAccuracy)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Heading:")));           
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.heading)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Speed:")));             
+			$("#geolocationProperties").append(addGridRow("b", textFormat(position.coords.speed)));
+			
+			$("#geolocationProperties").append(addGridRow("a", boldLabel("Timestamp:"))); 
+			$("#geolocationProperties").append(addGridRow("b", toDateStr(new Date(position.timestamp))));
+				
+		}
+		function geolocationError(error) {
+			$("#geolocationProperties").append(addGridRow('a', boldLabel("ERROR:")));
+			$("#geolocationProperties").append(addGridRow('b', error.message + " Code: " + error.code));
+			updateGeolocationStatus("ERROR");
+		} 
+
+		function getGeolocationInfo() {
+			if ( geolocationInt != undefined ) {
+				navigator.geolocation.clearWatch(geolocationInt);
+			}
+			if ( $("#geolocFreq").val() != 1 ) {
+				$("#geolocFreq").val(1).slider("refresh");
+			}
+			
+			navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, {enableHighAccuracy:true, timeout:5000});
+			updateGeolocationStatus("Initialized");     
+		}
+		
+		function updateGeolocation() {
+			if ( geolocationInt != undefined ) {
+				navigator.geolocation.clearWatch(geolocationInt);
+			}
+			
+			var uDefFreq = $("#geolocFreq").val();
+			
+			if ( uDefFreq > 0 ) {
+				// The Android 2.x simulators will not return a geolocation result unless the enableHighAccuracy option is set to true. 
+				geolocationInt = navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, {enableHighAccuracy:true, timeout:5000, maximumAge: uDefFreq * 1000});
+			}
+			updateGeolocationStatus("Updating... Frequency: " + uDefFreq + " sec");
+		}
+		
+		function stopUpdateGeolocation() {
+			navigator.geolocation.clearWatch(geolocationInt);
+			geolocationInt = undefined;
+			updateGeolocationStatus("Stopped");
+		}
+	</script>
+	
+	<script type="text/javascript" charset="utf-8">
+		//*********************************************************    
+		// Notification Capabilities
+		//*********************************************************
+		function updateNotificationStatus(status) {
+			$("#notificationStatus").empty();
+			$("#notificationStatus").append(status).trigger("create");
+		}
+
+		function getNotificationReady() {
+			updateNotificationStatus("");   
+		}
+		
+		function alertCB() {
+			updateNotificationStatus("Alert is picked");
+		}
+		
+		function confirmCB(button) {
+			var btnText;
+			
+			switch (button) {
+				case 1:
+					btnText = "Green";
+					break;
+				case 2:
+					btnText = "Red";
+					break;
+			}
+
+			updateNotificationStatus("Confirm: You selected the \"" + btnText +  "\" button");
+			$("#colorBox").css({"background-color": btnText})
+			$("#notificationConfirm").popup({positionTo: "window"});
+			$("#notificationConfirm").popup("open");        
+		}
+		
+		function alertNotification() {
+			navigator.notification.alert(
+				  'Alert Notification'
+				, alertCB
+				, 'Title | Alert'
+				, 'Done'
+			);
+		}
+		function confirmNotification() {
+			navigator.notification.confirm(
+				  'Which color do you like most?'
+				, confirmCB
+				, 'Title | Confirm'
+				, 'Green,Red'
+			);  
+		}
+		function beepNotification() {
+			navigator.notification.beep(3); 
+			updateNotificationStatus("Beep is picked");
+		}
+		function vibrateNotification() {
+			navigator.notification.vibrate(2000);
+			updateNotificationStatus("Vibrate is picked");
+		}
+	</script>       	
+	
+</head>
+	
+<body>	
+<!---------------------------------- Main Page --------------------------------------->
+<div data-role="page" id="main">
+    <div data-role="header" data-position="fixed">
+        <h1 id="appTitle"></h1>
+    </div>
+    <div data-role="content">   
+    <ul data-role="listview" data-inset="true" data-filter="true">
+        <li><a href="#geolocationInfo" onclick="getGeolocationInfo();">Geolocation</a></li>
+		<li><a href="#notificationCap" onclick="getNotificationReady();">Notification</a></li>
+    </ul>
+    </ul>
+    </div>
+</div>
+
+<!---------------------------------- Geolocation ------------------------------------->
+<div data-role="page" data-add-back-btn="true" back-btn-text="back" id="geolocationInfo">
+    <div data-role="header">
+        <h1>Geolocation</h1>
+    </div>
+    <div data-role="content">
+        <div id="geolocationProperties" class="mesgBox ui-grid-a"></div>
+        <div data-role="fieldcontain">
+            <form>
+                <label class="smFont" for="geolocFreq">Update frequency (in seconds)</label>
+                <input type="range" name="geolocFreq" id="geolocFreq" value="1" min="0" max="10" step="1" data-highlight="true"/>
+            </form>
+            <a href="#" data-role="button" onclick="updateGeolocation();">Start update</a>
+            <a href="#" data-role="button" onclick="stopUpdateGeolocation();">Stop update</a>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <div id="geolocationStatus"></div>
+    </div>
+</div>
+
+
+<!---------------------------------- Notification ------------------------------------>
+<div data-role="page" data-add-back-btn="true" back-btn-text="back" id="notificationCap">
+    <div data-role="header">
+        <h1>Notification</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true">
+            <li><a href="#" onclick="alertNotification();"  >Alert</a></li>
+            <li><a href="#" onclick="confirmNotification();">Confirm</a></li>
+            <li><a href="#" onclick="beepNotification();"   >Beep</a></li>
+            <li><a href="#" onclick="vibrateNotification();">Vibrate</a></li>
+        </ul>
+        <div class="mesgBox">
+            <ul class="smFont">
+                <li>Alert   - Show alert box</li>
+                <li>Confirm - Show confirm message box</li>
+                <li>Beep    - Will beep 3 times</li>
+                <li>Vibrate - Will vibrate for 2 sec</li>
+            </ul>           
+        </div>  
+<!---------------------------------- Notification: Confirm --------------------------->
+        <div data-role="popup" id="notificationConfirm" class="ui-content" data-theme="e" data-transitione="pop">
+            <h3>Confirmation - Selection</h3>
+            <h5 class="hlabel">You've picked...</h5>
+            <div id="colorBox"></div>
+            <button onclick="$('#notificationConfirm').popup('close');">Close</button>
+        </div>
+    </div>
+    <div data-role="footer">
+        <div id="notificationStatus"></div>
+    </div>      
+
     
-	}, false);
+</div>
+
+
+</body>
+
+</html>
 	
-	$(document).on('pagebeforeshow', '#page1', function(){   
-            setInterval(myBeeper, 7000);
-    	});
-	function myBeeper() {
-		navigator.notification.beep(1);
-		//navigator.notification.vibrate(1000);
-	}
-	
-	function myBeeper2() {
-		navigator.notification.beep(2);
-		//navigator.notification.vibrate(1000);
-	}
-</script>	
