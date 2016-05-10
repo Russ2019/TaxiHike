@@ -118,6 +118,44 @@
 		}
 	</script>
 	
+	<script type="text/javascript" charset="utf-8">
+		//*********************************************************    
+		// Event Capabilities
+		//*********************************************************
+		function updateEventStatus(status) {
+			$("#eventStatus").empty();
+			$("#eventStatus").append(status).trigger("create");
+		}
+
+		function batteryStatusEvt(e) {
+			alert(e.type + " event created." + "\nBattery Level: " + e.level + "\nCharger plugin? " + e.isPlugged);
+		}
+		
+		function menuEvt(e) {
+			alert(e.type + " event created.");
+		}
+
+		function toggleBatteryStatusEvent() {
+			if ( $("#flip-batteryStatus option:selected").val() == "on" ) {
+				updateEventStatus("Enable battery status event");
+				window.addEventListener("batterystatus", batteryStatusEvt, false);          
+			} else {
+				updateEventStatus("Disable battery status event");
+				window.removeEventListener("batterystatus", batteryStatusEvt, false);
+			}
+		}
+
+		function toggleMenuEvent() {
+			if ( $("#flip-menu option:selected").val() == "on" ) {
+				updateEventStatus("Enable menu button event");
+				document.addEventListener("menubutton", menuEvt, false);
+			} else {
+				updateEventStatus("Disable menu button event");
+				document.removeEventListener("menubutton", menuEvt, false);
+			}
+		}
+	</script>	
+	
 	
 </head>
 	
@@ -129,17 +167,18 @@
     </div>
     <div data-role="content">   
     <ul data-role="listview" data-inset="true" data-filter="true">
-        <li><a href="#geolocationInfo" data-transition="slide" onclick="getGeolocationInfo();">Geolocation</a></li>
+        <li><a href="#geolocationInfo" onclick="getGeolocationInfo();">Geolocation</a></li>
+        <li><a href="#eventCap" onclick="getEventsReady();">Event</a></li>          
     </ul>
     </div>
 </div>
 
+
 <!---------------------------------- Geolocation ------------------------------------->
 <!-- http://demos.jquerymobile.com/1.2.1/docs/pages/page-links.html -->
-
 <div data-role="page" id="geolocationInfo">
     <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
+		<a data-rel="back" data-ajax="false" data-icon="arrow-l">Tilbake</a>
         <h1>Geolocation</h1>
     </div>
     <div data-role="content">
@@ -157,6 +196,46 @@
         <div id="geolocationStatus"></div>
     </div>
 </div>
+
+
+<!---------------------------------- Event ------------------------------------------>          
+<div data-role="page" data-add-back-btn="true" back-btn-text="back" id="eventCap">
+    <div data-role="header">
+        <h1>Event Types</h1>
+    </div>
+    <div data-role="content">
+        <form>
+            <ul id="eventListView" data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <label for="flip-batteryStatus" class="smFont">Battery Status</label>
+                    <select name="flip-batteryStatus" id="flip-batteryStatus" data-role="slider" data-mini="true" onchange="toggleBatteryStatusEvent();">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                </li>
+                <li data-role="fieldcontain" class="smFont">
+                    <label for="flip-menu" class="smFont">Menu</label>
+                    <select name="flip-menu" id="flip-menu" data-role="slider" data-mini="true" onchange="toggleMenuEvent();">
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
+                    </select>
+                </li>
+            </ul>
+        </form>         
+
+            <div class="mesgBox">
+                <h5 class="hlabel">There are a handful of events you can implement in PhoneGap.  Here are 2 examples:</h5>
+                <ul  class="smFont">
+                    <li>Battery Event - triggered when % of battery changed by > 1% or phone is plugged/un-plugged.</li>
+                    <li>Menu Event - show a popup when the menu button is pressed.</li>
+                </ul>           
+            </div>
+    </div>
+    <div data-role="footer">
+        <div id="eventStatus"></div>
+    </div>
+</div>  
+
 
 </body>
 
