@@ -76,6 +76,7 @@
 					var lng = pos.lng();
 					var loc = pt2location(lat, lng);
 					createmarker(loc);
+					geocodePosition(pos);
 					
 					// timeout to next sampling
 					google.maps.event.addListenerOnce(map,'idle',function() {
@@ -103,6 +104,28 @@
 			alert('Your browser does not support geolocation');
 		}
 	</script>
+
+	<script>
+            var geocoder = new google.maps.Geocoder();
+
+            function geocodePosition(pos) {
+                geocoder.geocode({
+                    latLng: pos
+                }, function(responses) {
+                    if (responses && responses.length > 0) {
+                        updateMarkerAddress(responses[0].formatted_address);
+                    } else {
+                        updateMarkerAddress('Cannot determine address at this location.');
+                    }
+                });
+            }
+
+            function updateMarkerAddress(str) {
+                //document.getElementById('address').innerHTML = str;
+				$('#result').text(str);
+            }
+	</script>
+	
 	<script>
 		$(document).ready(function(){
 			$("#siste").click(function(){
