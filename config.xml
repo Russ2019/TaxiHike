@@ -1,52 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.pgdemo"
-        versionCode = "101" 
-        version     = "1.0.1" >
+        id          = "com.phonegap.taxihike"
+        versionCode = "112" 
+        version     = "1.1.2" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>PhoneGap 3.3 Example</name>
+    <name>TaxiHike v1.1.2</name>
+    
+    <!-- Default application icon -->
+    <icon src="icon.png" />
+    <!--
+        Default icon should work, but cordova don't overwrite
+        the default on all densities
+        source: http://stackoverflow.com/questions/17820492/how-to-add-app-icon-within-phonegap-projects
+    -->
+    <icon src="icon.png" platform="android" density="ldpi" />
+    <icon src="icon.png" platform="android" density="mdpi" />
+    <icon src="icon.png" platform="android" density="hdpi" />
+    <icon src="icon.png" platform="android" density="xhdpi" />
+    
+    <preference name="phonegap-version" value="3.0.0" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <uses-permission name="permission.INTERNET" />
+    
+    <plugin name="cordova-plugin-background-mode" source="npm" />
+
+    <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
+    <gap:plugin name="org.apache.cordova.core.dialogs" />
+    <gap:plugin name="org.apache.cordova.core.vibration" />
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.Notification" />
+    </feature>
 
     <description>
-        Another App. 
+       Beskrivelse. 
     </description>
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
-        John smith 
+        iTorget 
     </author>
-	
-	<gap:platform name="ios" />
-	<gap:platform name="android" />
-	<gap:platform name="winphone" />
-	
-	<preference name="phonegap-version" value="3.3.0" />
-	<preference name="LoadingDialog" value="Please wait, the app is loading"/>
-	<preference name="AllowInlineMediaPlayback" value="true"/>
-	
-	<preference name="KeepRunning" value="true"/>
-	
-	<icon src="icon.png"/>
-	<gap:splash src="splash.png"/>
-		
-	<gap:plugin name="org.apache.cordova.camera" />
-	<gap:plugin name="org.apache.cordova.media-capture" />
-	<gap:plugin name="org.apache.cordova.device" />
-	<gap:plugin name="org.apache.cordova.device-orientation" />
-	<gap:plugin name="org.apache.cordova.console" />
-	<gap:plugin name="org.apache.cordova.contacts" />
-	<gap:plugin name="org.apache.cordova.device-motion" />
-	<gap:plugin name="org.apache.cordova.file" />
-	<gap:plugin name="org.apache.cordova.file-transfer" />
-	<gap:plugin name="org.apache.cordova.network-information" />
-	<gap:plugin name="org.apache.cordova.media" />
-	<gap:plugin name="org.apache.cordova.inappbrowser"  />
-	<gap:plugin name="org.apache.cordova.globalization" />
-	<gap:plugin name="org.apache.cordova.dialogs" />
-	<gap:plugin name="org.apache.cordova.splashscreen" />
-	<gap:plugin name="org.apache.cordova.vibration" />
-
-	<access origin="*" />
 
 </widget>
