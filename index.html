@@ -20,6 +20,7 @@
 		left : 0 !important;     
 		}		
 	</style>
+
 	
     <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
@@ -148,7 +149,8 @@
 			$("#stop").click(function(){
 				alert('stop');
 				active = 0;
-				navigator.geolocation.clearWatch(geocoder);		//virker dette???
+				//navigator.geolocation.clearWatch(geocoder);		//virker dette???
+				navigator.geolocation.clearWatch(geocoder.e);		//virker dette???
 				$('#result').text('tracking stopped!');
 			});
 		});
