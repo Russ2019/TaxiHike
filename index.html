@@ -8,10 +8,7 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>	
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-				
-	<script src="js/notification.js"></script>
-	<script src="js/event.js"></script>
-	
+					
 	<style>
 		.mesgBox { 
 			border-radius: 8px;
@@ -42,6 +39,45 @@
 			return('<div class="ui-block-'+col+'">'+str+'</div>');
 			}			
 	</script>
+	
+	<script type="text/javascript" charset="utf-8">
+		//*********************************************************    
+		// Event Capabilities
+		//*********************************************************
+		function updateEventStatus(status) {
+			$("#eventStatus").empty();
+			$("#eventStatus").append(status).trigger("create");
+		}
+
+		function batteryStatusEvt(e) {
+			alert(e.type + " event created." + "\nBattery Level: " + e.level + "\nCharger plugin? " + e.isPlugged);
+		}
+		
+		function menuEvt(e) {
+			alert(e.type + " event created.");
+		}
+
+		function toggleBatteryStatusEvent() {
+			if ( $("#flip-batteryStatus option:selected").val() == "on" ) {
+				updateEventStatus("Enable battery status event");
+				window.addEventListener("batterystatus", batteryStatusEvt, false);          
+			} else {
+				updateEventStatus("Disable battery status event");
+				window.removeEventListener("batterystatus", batteryStatusEvt, false);
+			}
+		}
+
+		function toggleMenuEvent() {
+			if ( $("#flip-menu option:selected").val() == "on" ) {
+				updateEventStatus("Enable menu button event");
+				document.addEventListener("menubutton", menuEvt, false);
+			} else {
+				updateEventStatus("Disable menu button event");
+				document.removeEventListener("menubutton", menuEvt, false);
+			}
+		}	
+	</script>
+	
 	<script>
 		//*********************************************************    
 		// Geolocation Capabilities
@@ -119,42 +155,65 @@
 			updateGeolocationStatus("Stopped");
 		}
 	</script>
-	
-	<script type="text/javascript" charset="utf-8">
+		
+	<script>
 		//*********************************************************    
-		// Event Capabilities
+		// Notification Capabilities
 		//*********************************************************
-		function updateEventStatus(status) {
-			$("#eventStatus").empty();
-			$("#eventStatus").append(status).trigger("create");
+		function updateNotificationStatus(status) {
+			$("#notificationStatus").empty();
+			$("#notificationStatus").append(status).trigger("create");
 		}
 
-		function batteryStatusEvt(e) {
-			alert(e.type + " event created." + "\nBattery Level: " + e.level + "\nCharger plugin? " + e.isPlugged);
+		function getNotificationReady() {
+			updateNotificationStatus("");   
 		}
 		
-		function menuEvt(e) {
-			alert(e.type + " event created.");
+		function alertCB() {
+			updateNotificationStatus("Alert is picked");
 		}
-
-		function toggleBatteryStatusEvent() {
-			if ( $("#flip-batteryStatus option:selected").val() == "on" ) {
-				updateEventStatus("Enable battery status event");
-				window.addEventListener("batterystatus", batteryStatusEvt, false);          
-			} else {
-				updateEventStatus("Disable battery status event");
-				window.removeEventListener("batterystatus", batteryStatusEvt, false);
+		
+		function confirmCB(button) {
+			var btnText;
+			
+			switch (button) {
+				case 1:
+					btnText = "Green";
+					break;
+				case 2:
+					btnText = "Red";
+					break;
 			}
+
+			updateNotificationStatus("Confirm: You selected the \"" + btnText +  "\" button");
+			$("#colorBox").css({"background-color": btnText})
+			$("#notificationConfirm").popup({positionTo: "window"});
+			$("#notificationConfirm").popup("open");        
 		}
-
-		function toggleMenuEvent() {
-			if ( $("#flip-menu option:selected").val() == "on" ) {
-				updateEventStatus("Enable menu button event");
-				document.addEventListener("menubutton", menuEvt, false);
-			} else {
-				updateEventStatus("Disable menu button event");
-				document.removeEventListener("menubutton", menuEvt, false);
-			}
+		
+		function alertNotification() {
+			navigator.notification.alert(
+				  'Alert Notification'
+				, alertCB
+				, 'Title | Alert'
+				, 'Done'
+			);
+		}
+		function confirmNotification() {
+			navigator.notification.confirm(
+				  'Which color do you like most?'
+				, confirmCB
+				, 'Title | Confirm'
+				, 'Green,Red'
+			);  
+		}
+		function beepNotification() {
+			navigator.notification.beep(3); 
+			updateNotificationStatus("Beep is picked");
+		}
+		function vibrateNotification() {
+			navigator.notification.vibrate(2000);
+			updateNotificationStatus("Vibrate is picked");
 		}	
 	</script>
 		
@@ -170,7 +229,7 @@
     <ul data-role="listview" data-inset="true" data-filter="true">
         <li><a href="#eventCap" onclick="getEventsReady();">Event</a></li> 
         <li><a href="#geolocationInfo" onclick="getGeolocationInfo();">Geolocation</a></li>
-		<li><a href="#notificationCap" data-transition="slide" onclick="getNotificationReady();">Notification</a></li>		
+		<li><a href="#notificationCap" onclick="getNotificationReady();">Notification</a></li>		
     </ul>
     </div>
 </div>
