@@ -148,6 +148,7 @@
 			$("#stop").click(function(){
 				alert('stop');
 				active = 0;
+				navigator.geolocation.clearWatch(geocoder);		//virker dette???
 				$('#result').text('tracking stopped!');
 			});
 		});
