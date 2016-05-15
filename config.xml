@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.beep"
-        versionCode = "100" 
-        version     = "1.0.0" >
+        id          = "com.phonegap.taxihike"
+        versionCode = "103" 
+        version     = "1.0.3" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Beep v1.0.0</name>
+    <name>PG demo v1.0.3</name>
     
     <!-- Default application icon -->
     <icon src="icon.png" />
@@ -42,7 +42,7 @@
     </description>
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
-        iTorget 
+        iTorget
     </author>
 
 </widget>
