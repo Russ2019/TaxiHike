@@ -9,64 +9,97 @@
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		
+		<style>
+			#content {
+			padding: 0;
+			position : absolute !important; 
+			top : 40px !important;  
+			right : 0; 
+			bottom : 0px !important;  
+			left : 0 !important;     
+			}		
+		</style>
+		
+		<script>
+			var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+
+			function initialize()
+			{
+			var mapProp = {
+			  center:myCenter,
+			  zoom:5,
+			  mapTypeId:google.maps.MapTypeId.ROADMAP
+			  };
+
+			var map=new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+
+			var marker=new google.maps.Marker({
+			  position:myCenter,
+			  });
+
+			marker.setMap(map);
+			}
+
+			// flyttet til deviceready
+			// google.maps.event.addDomListener(window, 'load', initialize);
+		</script>		
+
+		<script>
+			document.addEventListener("deviceready", onDeviceReady, false);
+			window.addEventListener('orientationchange', doOnOrientationChange);
+			//document.addEventListener('orientationchange', doOnOrientationChange);
+
+			function onDeviceReady() {
+				document.addEventListener("pause", onPause, false);
+				document.addEventListener("resume", onResume, false);
+				//alert("Device is Ready");		
+				
+				google.maps.event.addDomListener(window, 'load', initialize);		
+			}
+			
+			function doOnOrientationChange() {
+				switch(window.orientation) {  
+					case -90:
+					case 90:
+						//alert('landscape');
+						break; 
+					default:
+						//alert('portrait');
+						break; 
+				}
+			}	
+
+			function onPause(){		
+				//alert("paused!");
+			}
+
+			function onResume() {		
+				//alert("resume");
+			}
+		</script>
+
 
 	</head>
 	<body>
-		<!-- Start of first page I -->
 		<div data-role="page" id="page1">
-			<!-- Header -->
+			
 			<div data-role="header">
 				<h1>Phonegap Template &amp;</h1>
-
-			</div>
-			<!-- /header -->
-			<!-- Content    -->
+			</div><!-- /header -->
+						
 			<div data-role="content">
-				<h3>Content</h3>
-				<p>
-					Blah blah blah blah
-				</p>
-			</div>
-			<!-- /content -->
-			<!-- footer -->
+				<div id="map_canvas" style="height:100%"></div>
+			</div><!-- /content -->
+			
 			<div data-role="footer">
 				<h4>&copy; 2013 Your Name</h4>
-			</div>
-			<!-- /footer -->
-		</div>
-		<!-- /page -->
+			</div><!-- /footer -->
+			
+		</div><!-- /page -->
 	</body>
 </html>
 
 
-<script>
-	document.addEventListener("deviceready", onDeviceReady, false);
-	window.addEventListener('orientationchange', doOnOrientationChange);
-	//document.addEventListener('orientationchange', doOnOrientationChange);
-
-	function onDeviceReady() {
-		document.addEventListener("pause", onPause, false);
-		document.addEventListener("resume", onResume, false);
-		alert("Device is Ready");		
-	}
-	
-	function doOnOrientationChange() {
-		switch(window.orientation) {  
-			case -90:
-			case 90:
-				alert('landscape');
-				break; 
-			default:
-				alert('portrait');
-				break; 
-		}
-	}	
-
-	function onPause(){		
-		alert("paused!");
-	}
-
-	function onResume() {		
-		alert("resume");
-	}
-</script>
