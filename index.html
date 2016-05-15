@@ -44,7 +44,7 @@
 			}
 
 			// flyttet til deviceready
-			// google.maps.event.addDomListener(window, 'load', initialize);
+			google.maps.event.addDomListener(window, 'load', initialize);
 		</script>		
 
 		<script>
@@ -57,7 +57,7 @@
 				document.addEventListener("resume", onResume, false);
 				//alert("Device is Ready");		
 				
-				google.maps.event.addDomListener(window, 'load', initialize);		
+				//google.maps.event.addDomListener(window, 'load', initialize);		
 			}
 			
 			function doOnOrientationChange() {
