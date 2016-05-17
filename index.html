@@ -104,10 +104,10 @@
 	</script>
 
 	<script>
+		var watchID = null;		
+		watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+		
 		// onSuccess Callback
-		//   This method accepts a `Position` object, which contains
-		//   the current GPS coordinates
-		//
 		function onSuccess(position) {
 			var element = document.getElementById('geolocation');
 			element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
@@ -115,20 +115,21 @@
 								'<hr />'      + element.innerHTML;
 								
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
-			createmarker(loc);	
+			createmarker(loc);
+
+			//clearwatchposition - vent i 15 sekunder - start ny watchposition
+			navigator.geolocation.clearWatch(watchID);
+			window.setTimeout(function() {
+				watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+			},15000);	
 								
 		}
 
 		// onError Callback receives a PositionError object
-		//
 		function onError(error) {
 			alert('code: '    + error.code    + '\n' +
 				  'message: ' + error.message + '\n');
 		}
-
-		// Options: throw an error if no update is received every 30 seconds.
-		//
-		var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 	</script>
 	
 	
