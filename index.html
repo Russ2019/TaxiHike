@@ -62,6 +62,7 @@
 			GeoMarker.setCircleOptions({fillColor: '#808080'});
 
 			google.maps.event.addListener(GeoMarker, 'position_changed', function() {
+                                alert('position changed');
 				var len = markers.length;
 				var oldZoom = map.getZoom(); // hent map.zoom, hvis over
 				if (oldZoom > 16) { /* do nothing! */ }
