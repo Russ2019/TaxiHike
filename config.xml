@@ -2,12 +2,12 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.taxihike"
-        versionCode = "123" 
-        version     = "1.2.3" >
+        versionCode = "124" 
+        version     = "1.2.4" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>TaxiHike v1.2.3</name>
+    <name>TaxiHike v1.2.4</name>
     
     <!-- Default application icon -->
     <icon src="icon.png" />
