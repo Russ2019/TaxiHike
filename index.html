@@ -27,7 +27,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
     <script>
-		var active = 1;
 		var sampling = 0;
 		var markers = [];
 		var map, GeoMarker, lastmarker;
@@ -62,16 +61,14 @@
 			GeoMarker.setCircleOptions({fillColor: '#808080'});
 
 			google.maps.event.addListener(GeoMarker, 'position_changed', function() {
-				var len = markers.length;
-				var oldZoom = map.getZoom(); // hent map.zoom, hvis over
-				if (oldZoom > 16) { /* do nothing! */ }
+				var oldZoom = map.getZoom(); // hent map.zoom
 				
 				// - setCenter+setZoom on new point.
 				map.setCenter(this.getPosition());  
 				map.setZoom(oldZoom);
 					
 				// sampling
-				if (sampling == 0 && active == 1) {
+				if (sampling == 0) {
 					sampling = 1;
 					
 					var pos = GeoMarker.getPosition();
@@ -146,15 +143,11 @@
 			$("#start").click(function(){
 				alert('start');
 				active = 1;
-				geocoder.setMap(map);
 				$('#result').text('tracking started!');
 			});
 			$("#stop").click(function(){
 				alert('stop');
 				active = 0;
-				//navigator.geolocation.clearWatch(geocoder);		//virker dette???
-				//navigator.geolocation.clearWatch(geocoder.e);		//virker dette???
-				geocoder.setMap(null);
 				$('#result').text('tracking stopped!');
 			});
 		});
