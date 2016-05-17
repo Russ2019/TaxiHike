@@ -152,6 +152,51 @@
 			});
 		});
 	</script>
+
+
+<script>
+	document.addEventListener("deviceready", onDeviceReady, false);
+	window.addEventListener('orientationchange', doOnOrientationChange);
+	//document.addEventListener('orientationchange', doOnOrientationChange);
+
+	function onDeviceReady() {
+		//google.maps.event.addListener(map,'center_changed',function() {
+		//  window.setTimeout(function() {
+		//	//map.panTo(marker.getPosition());
+		//	map.fitBounds(bounds);
+		//  },3000);
+		//});
+		
+		// http://stackoverflow.com/questions/12576062/jquery-document-ready-vs-phonegap-deviceready?answertab=votes#tab-top
+		
+		//google.maps.event.addDomListener(window, 'load', initialize);
+
+		
+		document.addEventListener("pause", onPause, false);
+		document.addEventListener("resume", onResume, false);
+		alert("Device is Ready");		
+	}
+	
+	function doOnOrientationChange() {
+		switch(window.orientation) {  
+			case -90:
+			case 90:
+				alert('landscape');
+				break; 
+			default:
+				alert('portrait');
+				break; 
+		}
+	}	
+
+	function onPause(){		
+		//alert("paused!");
+	}
+
+	function onResume() {		
+		//alert("resume");
+	}
+</script>
 	
 	
 </head>
