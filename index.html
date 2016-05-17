@@ -51,8 +51,8 @@
 		
 		function initialize() {
 			var mapOptions = {
-				zoom: 16,
-				center: new google.maps.LatLng(-34.397, 150.644),
+				zoom: 12,
+				center: new google.maps.LatLng(59.5, 10.5),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 				};
 			map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -72,7 +72,7 @@
 				map.setZoom(oldZoom);
 					
 				// sampling
-				if (sampling == 0 && active == 1) {
+				if (sampling == 0) {
 					sampling = 1;
 					
 					var pos = GeoMarker.getPosition();
