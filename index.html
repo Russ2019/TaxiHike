@@ -22,7 +22,10 @@
 		left : 0 !important;     
 		}		
 	</style>
+
 	
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
     <script>
 		var sampling = 0;
 		var markers = [];
@@ -54,8 +57,7 @@
 			map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);    
 			} // initialize
 
-		//flyttet til deviceready	
-		//google.maps.event.addDomListener(window, 'load', initialize);
+		google.maps.event.addDomListener(window, 'load', initialize);
       
 	</script>
 
@@ -77,67 +79,6 @@
 		function updateMarkerAddress(str) {
 			//document.getElementById('address').innerHTML = str;
 			$('#result').text(str);
-		}
-	</script>
-	
-	<script>
-		// onSuccess Callback
-		var watchID = null;
-		
-		function onSuccess(position) {
-			var element = document.getElementById('geolocation');
-			element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-								'Longitude: ' + position.coords.longitude     + '<br />' +
-								'<hr />'      + element.innerHTML;
-								
-			//createmarker(position);
-			//map.panTo(position);	
-		}
-
-		// onError Callback receives a PositionError object
-		function onError(error) {
-			alert('code: '    + error.code    + '\n' +
-				  'message: ' + error.message + '\n');
-		}
-
-		
-		// Options: throw an error if no update is received every 30 seconds.
-		// flyttet til deviceready
-		// var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
-	</script>
-	
-	
-	<script>
-		document.addEventListener("deviceready", onDeviceReady, false);
-		window.addEventListener('orientationchange', doOnOrientationChange);
-
-		function onDeviceReady() {
-			document.addEventListener("pause", onPause, false);
-			document.addEventListener("resume", onResume, false);
-			google.maps.event.addDomListener(window, 'load', initialize);		
-			watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
-			
-			//alert("Device is Ready");						
-		}
-			
-		function doOnOrientationChange() {
-			switch(window.orientation) {  
-				case -90:
-				case 90:
-					//alert('landscape');
-					break; 
-				default:
-					//alert('portrait');
-					break; 
-			}
-		}	
-
-		function onPause(){		
-			//alert("paused!");
-		}
-
-		function onResume() {		
-			//alert("resume");
 		}
 	</script>
 	
@@ -164,6 +105,30 @@
 				$('#result').text('tracking stopped!');
 			});
 		});
+	</script>
+
+	<script>
+		// onSuccess Callback
+		//   This method accepts a `Position` object, which contains
+		//   the current GPS coordinates
+		//
+		function onSuccess(position) {
+			var element = document.getElementById('geolocation');
+			element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+								'Longitude: ' + position.coords.longitude     + '<br />' +
+								'<hr />'      + element.innerHTML;
+		}
+
+		// onError Callback receives a PositionError object
+		//
+		function onError(error) {
+			alert('code: '    + error.code    + '\n' +
+				  'message: ' + error.message + '\n');
+		}
+
+		// Options: throw an error if no update is received every 30 seconds.
+		//
+		var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 	</script>
 	
 	
