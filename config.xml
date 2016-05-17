@@ -2,12 +2,12 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.taxihike"
-        versionCode = "103" 
-        version     = "1.0.3" >
+        versionCode = "120" 
+        version     = "1.2.0" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>PG demo v1.0.3</name>
+    <name>TaxiHike v1.2.0</name>
     
     <!-- Default application icon -->
     <icon src="icon.png" />
@@ -26,13 +26,14 @@
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
     
+    <gap:plugin name="org.apache.cordova.device" version="0.2.3" />
     <plugin name="cordova-plugin-background-mode" source="npm" />
     <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
 
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
     <gap:plugin name="org.apache.cordova.core.dialogs" />
     <gap:plugin name="org.apache.cordova.core.vibration" />
-	
+
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.Notification" />
     </feature>
@@ -42,7 +43,15 @@
     </description>
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
-        iTorget
+        iTorget 
     </author>
+
+
+     <!-- to enable individual permissions use the following examples -->
+     <feature name="http://api.phonegap.com/1.0/geolocation"/>
+
+
+     <access origin="http://phonegap.com" subdomains="true" />
+
 
 </widget>
