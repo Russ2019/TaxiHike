@@ -117,6 +117,7 @@
 								
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 			createmarker(loc);
+			map.panTo(loc);
 			geocodePosition(loc);
 
 			// clearwatching - sleep - startwatching
