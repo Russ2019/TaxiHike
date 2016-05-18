@@ -78,6 +78,18 @@
 				}
 			});
 		}
+		
+		function pos2address(pos) {
+			geocoder.geocode({
+				latLng: pos
+			}, function(responses) {
+				if (responses && responses.length > 0) {
+					return(responses[0].formatted_address); 
+				} else {
+					return('');
+				}
+			});
+		}
 
 		function updateMarkerAddress(str) {
 			//document.getElementById('address').innerHTML = str;
@@ -118,11 +130,12 @@
 		// onSuccess Callback
 		function onSuccess(position) {
 			var element = document.getElementById('geolocation');
-			element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-								'Longitude: ' + position.coords.longitude     + '<br />' +
-								'<hr />'      + element.innerHTML;
-								
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
+			var adr = pos2address(loc);
+			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
+								adr + '<br />' +
+								'<hr />' + element.innerHTML;
+								
 			creategreenmarker(loc)
 			map.panTo(loc);
 			geocodePosition(loc);
