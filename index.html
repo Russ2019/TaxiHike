@@ -41,6 +41,13 @@
 				map: map,
 				});
 			}	
+		function creategreenmarker(location) {
+			var marker = new google.maps.Marker({
+				position: location,
+				icon: 'hhtp://maps.google.com/mapfiles/ms/icons/green-dot.png', 
+				map: map,
+				});
+			}	
 
 		//--------------------------------------------------------------
 		
@@ -116,7 +123,7 @@
 								'<hr />'      + element.innerHTML;
 								
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
-			createmarker(loc);
+			creategreenmarker(loc)
 			map.panTo(loc);
 			geocodePosition(loc);
 
