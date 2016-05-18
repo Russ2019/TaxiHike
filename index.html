@@ -184,14 +184,16 @@
 	</script>
 	
 	<script>
-
 		/* fires every 15 seconds forever */
 		function MyFunction() {
 			setInterval(function() { alert('alert every 15 secs!'); }, 15000 );
 			//setInterval(function() { /* plot marker on map */ }, 15000 );
 			//setInterval(plotMarker(), 15000 );
 		}
-	
+			
+		$(document).ready(function(){
+			MyFunction();
+		});	
 	</script>
 	
 	
