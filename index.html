@@ -25,7 +25,9 @@
     <script>
 		var sampling = 0;
 		var markers = [];
-		var map, lastmarker, myadr;
+		var map, lastmarker;
+		var mypos = null;
+		var myadr = '';
     
 	
 		// Create location
@@ -41,12 +43,21 @@
 				map: map,
 				});
 			}	
-		function creategreenmarker(location) {
-			var marker = new google.maps.Marker({
+		function CreateMyposMarker(location) {
+			mypos = new google.maps.Marker({
 				position: location,
 				icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
 				map: map,
 				});
+			}
+
+		function CreateOrUpdateMypos(location) {
+			if (mypos == null) {
+				CreateMyposMarker(location);
+				}
+			else {
+				mypos.setPosition(location);
+				}			
 			}	
 
 		//--------------------------------------------------------------
@@ -118,20 +129,25 @@
 		
 		// onSuccess Callback
 		function onSuccess(position) {
-			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
-											
-			creategreenmarker(loc)
+			
+			//my pos
+			CreateOrUpdateMypos(loc);		
 			map.panTo(loc);
+			
+			// display address on footer (#result), for hver ny mypos
 			geocodePosition(loc);
-
-			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
-							'<strong>' + myadr + '</strong> <br />' +
-								'<hr />' + element.innerHTML;
+			
+			// plot sampling point & logg to #page2, or just wait
+			if (sampling == 0) {
+				sampling = 1;
+				createmarker(loc);
+				LogAddressToPage2(loc); //logg address to #page2
+				sleepAfterSampling();
+			} else { // opptatt med sampling eller sleep etter sampling 
+				// do_noting 
+			}	
 								
-			// clearwatching - sleep - startwatching
-			stopWatching();
-			sleepAndStartWatching();								
 		}
 
 		// onError Callback receives a PositionError object
@@ -148,10 +164,17 @@
 			navigator.geolocation.clearWatch(watchID);
 		}
 		
-		function sleepAndStartWatching() {
+		function LogAddressToPage2(position) {
+			var element = document.getElementById('geolocation');
+			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
+								'<strong>' + myadr + '</strong> <br />' +
+								'<hr />' + element.innerHTML;			
+		}
+		
+		function sleepAfterSampling() {
 			window.setTimeout(function() {
-				startWatching();
-			},15000);	
+				sampling = 0;
+			},10000);	
 		}
 		
 	</script>
