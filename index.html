@@ -13,7 +13,7 @@
 	<style>
 		#content {
 		padding: 0;
-		position : absolute !important; 
+		position : absolute !important;
 		top : 40px !important;  
 		right : 0; 
 		bottom : 0px !important;  
@@ -105,7 +105,8 @@
 
 	<script>
 		var watchID = null;		
-		watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+		startWatching();
+		
 		
 		// onSuccess Callback
 		function onSuccess(position) {
@@ -118,12 +119,9 @@
 			createmarker(loc);
 			geocodePosition(loc);
 
-			//clearwatchposition - vent i 15 sekunder - start ny watchposition
-			navigator.geolocation.clearWatch(watchID);
-			window.setTimeout(function() {
-				watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
-			},15000);	
-								
+			// clearwatching - sleep - startwatching
+			stopWatching();
+			sleepAndStartWatching();								
 		}
 
 		// onError Callback receives a PositionError object
@@ -131,6 +129,21 @@
 			alert('code: '    + error.code    + '\n' +
 				  'message: ' + error.message + '\n');
 		}
+		
+		function startWatching() {
+			watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+		}
+		
+		function stopWatching() {
+			navigator.geolocation.clearWatch(watchID);
+		}
+		
+		function sleepAndStartWatching() {
+			window.setTimeout(function() {
+				startWatching();
+			},15000);	
+		}
+		
 	</script>
 	
 	
