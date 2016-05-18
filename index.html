@@ -139,7 +139,9 @@
 			geocodePosition(loc);
 			
 			// plot sampling point & logg to #page2, or just wait
-			alert('sampling: '+sampling);
+			// ALT DETTE flyttes til myFunction 
+
+			/***
 			if (sampling == 0) {
 				sampling = 1;
 				createmarker(loc);
@@ -147,7 +149,8 @@
 				sleepAfterSampling();
 			} else { // opptatt med sampling eller sleep etter sampling 
 				// do_noting 
-			}	
+			}
+			***/	
 								
 		}
 
@@ -178,6 +181,17 @@
 			},10000);	
 		}
 		
+	</script>
+	
+	<script>
+
+		/* fires every 15 seconds forever */
+		function MyFunction() {
+			setInterval(function() { alert('alert every 15 secs!'); }, 15000 );
+			//setInterval(function() { /* plot marker on map */ }, 15000 );
+			//setInterval(plotMarker(), 15000 );
+		}
+	
 	</script>
 	
 	
