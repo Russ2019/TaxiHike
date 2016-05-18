@@ -116,6 +116,7 @@
 								
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 			createmarker(loc);
+			geocodePosition(loc);
 
 			//clearwatchposition - vent i 15 sekunder - start ny watchposition
 			navigator.geolocation.clearWatch(watchID);
@@ -157,7 +158,6 @@
 		</div>
 		
 		<div data-role="content" id="content">
-			<div id="geolocation"></div>
 			<div id="map_canvas" style="height:100%"></div>
 		</div>
 		
@@ -174,7 +174,7 @@
 		</div>
 		
 		<div data-role="content" id="content2">
-			content...
+			<div id="geolocation"></div>
 		</div>
 		
 		<div data-theme="a" data-role="footer" data-position="fixed">
