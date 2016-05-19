@@ -133,8 +133,6 @@
 			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 			
-			// logg	
-			//createmarker(loc);
 			
 			// mypos			
 			//creategreenmarker(loc);
@@ -144,12 +142,18 @@
 			// adr on footer
 			geocodePosition(loc);
 
-			// adr on #page2
-			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
-								'<strong>' + myadr + '</strong> <br />' +
-								'<hr />' + element.innerHTML;								
-								
-			if (sampling > 5) { sampling = 0; }					
+			
+			if (sampling > 5) { 
+				sampling = 0; 
+				
+				// logg	
+				createmarker(loc);
+
+				// adr on #page2
+				element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
+									'<strong>' + myadr + '</strong> <br />' +
+									'<hr />' + element.innerHTML;																				
+				}					
 		}
 
 		// onError Callback receives a PositionError object
