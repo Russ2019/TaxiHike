@@ -172,7 +172,9 @@
 		};
 		
 		$(document).ready(function(){
-			setInterval(onInterval(), 10000);
+			window.setInterval(function() {
+				onInterval();
+			},10000);	
 		});
 	</script>
 	
