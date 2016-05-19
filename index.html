@@ -187,7 +187,10 @@
 		}
 
 		$(document).ready(function(){
-			MyFunction();
+			window.setInterval(function(){
+                           /// call your function here
+                           plotMarker();
+                        }, 15000);
 		});	
 	</script>
 	
