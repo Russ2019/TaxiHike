@@ -9,6 +9,7 @@
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<link rel="stylesheet" type="text/css" href="marker_pulsate.css">
 		
 	<style>
 		#content {
@@ -28,6 +29,13 @@
 		var map, lastmarker;
 		var mypos = null;
 		var myadr = '';
+		var image = new google.maps.MarkerImage(
+				'bluedot.png',
+				null, // size
+				null, // origin
+				new google.maps.Point( 8, 8 ), // anchor (move to center of marker)
+				new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
+				);
     
 	
 		// Create location
@@ -44,10 +52,12 @@
 				});
 			}	
 
+				
 		function creategreenmarker(location) {
 			mypos = new google.maps.Marker({
 				position: location,
-				icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
+				icon: image, 
+				//icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
 				map: map,
 				});
 			}	
@@ -113,11 +123,13 @@
 				$( "#myPanel-r" ).panel( "close" );
 			});
 			$("#start").click(function(){
-				alert('start');
+				if (!watchID) { startWatching(); }
+				//alert('start');
 				$('#result').text('tracking started!');
 			});
 			$("#stop").click(function(){
-				alert('stop');
+				if (watchID) { stopWatching(); }
+				//alert('stop');
 				$('#result').text('tracking stopped!');
 			});
 		});
@@ -143,7 +155,7 @@
 			geocodePosition(loc);
 
 			
-			if (sampling > 2) { 
+			if (sampling > 1) { 
 				sampling = 0; 
 				
 				// logg	
@@ -175,7 +187,7 @@
 	<script>
 		function onInterval() {
 			
-			alert('Interval - Every 10 secs '+sampling);
+			//alert('Interval - Every 10 secs '+sampling);
 			sampling = sampling+1;
 		};
 		
