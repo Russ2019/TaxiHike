@@ -134,7 +134,7 @@
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 			
 			// logg	
-			createmarker(loc);
+			//createmarker(loc);
 			
 			// mypos			
 			//creategreenmarker(loc);
@@ -168,7 +168,8 @@
 
 	<script>
 		function onInterval() {
-			alert('Interval - Every 10 secs');
+			//alert('Interval - Every 10 secs');
+			createmarker(mypos);
 		};
 		
 		$(document).ready(function(){
