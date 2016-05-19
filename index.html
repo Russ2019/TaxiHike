@@ -168,11 +168,9 @@
 
 	<script>
 		function onInterval() {
-			var lat = mypos.lat();
-			var lng = mypos.lng();
 			
-			alert('Interval - Every 10 secs '+lat);
-			createmarker(mypos);
+			alert('Interval - Every 10 secs '+sampling);
+			sampling = sampling+1;
 		};
 		
 		$(document).ready(function(){
