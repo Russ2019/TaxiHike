@@ -154,13 +154,13 @@
 			
 			alert('success! '+sampling);
 			
-			if (sampling < 1) {
+			if (sampling < 0) {
 				alert('sampling starter!');
 				sampling = 1;
-				createmarker(loc);
-				element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
-									'<strong>' + myadr + '</strong> <br />' +
-									'<hr />' + element.innerHTML;												
+				//createmarker(loc);
+				//element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
+				//					'<strong>' + myadr + '</strong> <br />' +
+				//					'<hr />' + element.innerHTML;												
 			}
 
 		}
