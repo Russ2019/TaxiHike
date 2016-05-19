@@ -148,6 +148,8 @@
 			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
 								'<strong>' + myadr + '</strong> <br />' +
 								'<hr />' + element.innerHTML;								
+								
+			if (sampling > 5) { sampling = 0; }					
 		}
 
 		// onError Callback receives a PositionError object
