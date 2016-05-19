@@ -163,13 +163,17 @@
 		function stopWatching() {
 			navigator.geolocation.clearWatch(watchID);
 		}
+				
+	</script>
+
+	<script>
+		function onInterval() {
+			alert('Interval - Every 10 secs');
+		};
 		
-		function sleepAndStartWatching() {
-			window.setTimeout(function() {
-				startWatching();
-			},15000);	
-		}
-		
+		$(document).ready(function(){
+			setInterval(onInterval(), 10000);
+		});
 	</script>
 	
 	
@@ -222,4 +226,5 @@
 	</div>	
 	
 </body>
+
 </html>
