@@ -138,7 +138,6 @@
 		
 		// onSuccess Callback
 		function onSuccess(position) {
-			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 											
 			//my pos
@@ -149,9 +148,6 @@
 			// display address on footer (#result), for hver ny mypos			
 			geocodePosition(loc);
 
-			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
-								'<strong>' + myadr + '</strong> <br />' +
-								'<hr />' + element.innerHTML;								
 		}
 
 		// onError Callback receives a PositionError object
@@ -166,10 +162,31 @@
 		
 		function stopWatching() {
 			navigator.geolocation.clearWatch(watchID);
-		}
-				
+		}				
 	</script>
 	
+	<script>
+		/* fires every 15 seconds forever */
+		function MyFunction() {
+			//setInterval(function() { alert('alert every 15 secs!'); }, 15000 );
+			//setInterval(function() { /* plot marker on map */ }, 15000 );
+			setInterval(plotMarker(), 15000 );
+		}
+			
+		function plotMarker() {
+			var element = document.getElementById('geolocation');
+			var temp = mypos;
+			
+			createmarker(loc);
+			element.innerHTML = '(Lat, Lng): ' + temp.coords.latitude + ', ' + temp.coords.longitude + '<br />' +
+								'<strong>' + myadr + '</strong> <br />' +
+								'<hr />' + element.innerHTML;								
+		}
+
+		$(document).ready(function(){
+			MyFunction();
+		});	
+	</script>
 	
 </head>
 	
