@@ -174,8 +174,7 @@
 		}
 			
 		function plotMarker() {
-			alert('alert every 15 secs!'); 
-			/*
+			//alert('alert every 15 secs!'); 
 			var element = document.getElementById('geolocation');
 			var temp = mypos;
 			
@@ -183,14 +182,13 @@
 			element.innerHTML = '(Lat, Lng): ' + temp.coords.latitude + ', ' + temp.coords.longitude + '<br />' +
 								'<strong>' + myadr + '</strong> <br />' +
 								'<hr />' + element.innerHTML;								
-			*/					
 		}
 
 		$(document).ready(function(){
 			window.setInterval(function(){
-                           /// call your function here
-                           plotMarker();
-                        }, 15000);
+				/// call your function here
+				plotMarker();
+			}, 15000);
 		});	
 	</script>
 	
