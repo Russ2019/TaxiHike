@@ -141,7 +141,6 @@
 			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 					
-			alert('success! '+sampling);
 			
 			//my pos
 			//creategreenmarker(loc);
@@ -153,7 +152,9 @@
 			// display address on footer (#result), for hver ny mypos			
 			geocodePosition(loc);
 			
-			if (sampling == 0) {
+			alert('success! '+sampling);
+			
+			if (sampling === 0) {
 				alert('sampling starter!');
 				sampling = 1;
 				createmarker(loc);
