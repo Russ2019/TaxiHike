@@ -141,8 +141,8 @@
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 											
 			//my pos
-			//creategreenmarker(loc)
-			//CreateOrUpdateMypos(loc);					
+			//creategreenmarker(loc);
+			CreateOrUpdateMypos(loc);					
 			
 			mypos = loc;
 			map.panTo(loc);
@@ -176,7 +176,7 @@
 		}
 			
 		function plotMarker() {
-			alert('alert every 15 secs! '+ mypos.coords.latitude + ', ' + mypos.coords.longitude); 
+			alert('alert every 15 secs! ');
 			/*
 			var element = document.getElementById('geolocation');
 			var temp = mypos;
