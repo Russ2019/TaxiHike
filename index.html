@@ -138,6 +138,7 @@
 		
 		// onSuccess Callback
 		function onSuccess(position) {
+			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
 											
 			//my pos
@@ -149,6 +150,14 @@
 			
 			// display address on footer (#result), for hver ny mypos			
 			geocodePosition(loc);
+			
+			if (sampling == 0) {
+				sampling = 1;
+				createmarker(loc);
+				element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
+									'<strong>' + myadr + '</strong> <br />' +
+									'<hr />' + element.innerHTML;												
+			}
 
 		}
 
@@ -176,6 +185,7 @@
 		}
 			
 		function plotMarker() {
+			sampling = 0;
 			alert('alert every 15 secs! ');
 			/*
 			var element = document.getElementById('geolocation');
