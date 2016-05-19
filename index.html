@@ -25,11 +25,9 @@
     <script>
 		var sampling = 0;
 		var markers = [];
-		var map, lastmarker;
-		var mypos = null;
-		var myadr = '';
- 		
-    	
+		var map, lastmarker, myadr;
+    
+	
 		// Create location
 		function pt2location(lat, lng) {
 			var loc = new google.maps.LatLng(lat, lng);
@@ -43,24 +41,6 @@
 				map: map,
 				});
 			}	
-			
-		function CreateMyposMarker(location) {
-			mypos = new google.maps.Marker({
-				position: location,
-				icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
-				map: map,
-				});
-			}
-			
-		function CreateOrUpdateMypos(location) {
-			if (mypos == null) {
-				CreateMyposMarker(location);
-				}
-			else {
-				mypos.setPosition(location);
-				}			
-			}	
-			
 		function creategreenmarker(location) {
 			var marker = new google.maps.Marker({
 				position: location,
@@ -140,29 +120,18 @@
 		function onSuccess(position) {
 			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
-					
-			
-			//my pos
-			//creategreenmarker(loc);
-			CreateOrUpdateMypos(loc);					
-			
-			mypos = loc;
+											
+			creategreenmarker(loc)
 			map.panTo(loc);
-			
-			// display address on footer (#result), for hver ny mypos			
 			geocodePosition(loc);
-			
-			alert('success! '+sampling);
-			
-			if (sampling < 0) {
-				alert('sampling starter!');
-				sampling = 1;
-				//createmarker(loc);
-				//element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
-				//					'<strong>' + myadr + '</strong> <br />' +
-				//					'<hr />' + element.innerHTML;												
-			}
 
+			element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
+								'<strong>' + myadr + '</strong> <br />' +
+								'<hr />' + element.innerHTML;
+								
+			// clearwatching - sleep - startwatching
+			// stopWatching();
+			// sleepAndStartWatching();								
 		}
 
 		// onError Callback receives a PositionError object
@@ -177,38 +146,16 @@
 		
 		function stopWatching() {
 			navigator.geolocation.clearWatch(watchID);
-		}				
+		}
+		
+		function sleepAndStartWatching() {
+			window.setTimeout(function() {
+				startWatching();
+			},15000);	
+		}
+		
 	</script>
 	
-	<script>
-		/* fires every 15 seconds forever */
-		function MyFunction() {
-			//setInterval(function() { alert('alert every 15 secs!'); }, 15000 );
-			//setInterval(function() { /* plot marker on map */ }, 15000 );
-			setInterval(plotMarker(), 15000 );
-		}
-			
-		function plotMarker() {
-			sampling = 0;
-			alert('alert every 15 secs! ');
-			/*
-			var element = document.getElementById('geolocation');
-			var temp = mypos;
-			
-			createmarker(loc);
-			element.innerHTML = '(Lat, Lng): ' + temp.coords.latitude + ', ' + temp.coords.longitude + '<br />' +
-								'<strong>' + myadr + '</strong> <br />' +
-								'<hr />' + element.innerHTML;								
-			*/					
-		}
-
-		$(document).ready(function(){
-			window.setInterval(function(){
-				/// call your function here
-				plotMarker();
-			}, 15000);
-		});	
-	</script>
 	
 </head>
 	
