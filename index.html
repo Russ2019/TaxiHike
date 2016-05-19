@@ -140,8 +140,7 @@
 		function onSuccess(position) {
 			var element = document.getElementById('geolocation');
 			var loc = pt2location(position.coords.latitude, position.coords.longitude);
-											
-			alert('success!');
+					
 			
 			//my pos
 			//creategreenmarker(loc);
@@ -154,6 +153,7 @@
 			geocodePosition(loc);
 			
 			if (sampling == 0) {
+				alert('sampling starter!');
 				sampling = 1;
 				createmarker(loc);
 				element.innerHTML = '(Lat, Lng): ' + position.coords.latitude + ', ' + position.coords.longitude + '<br />' +
