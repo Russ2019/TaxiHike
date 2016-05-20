@@ -187,6 +187,7 @@
 				if (!watchID) { startWatching(); }
 				//alert('start');
 				$('#result').text('tracking started!');
+                                 $( "#myPanel-r" ).panel( "close" );
 			});
 			$("#stop").click(function(){
 				if (watchID) { stopWatching(); }
