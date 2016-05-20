@@ -240,7 +240,11 @@
 		}
 		
 		function stopWatching() {
-			navigator.geolocation.clearWatch(watchID);
+                   if (watchID != null) {
+                      navigator.geolocation.clearWatch(watchID);
+                      watchID = null;
+                    }
+                        
 		}
 				
 	</script>
