@@ -33,6 +33,8 @@
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
     <gap:plugin name="org.apache.cordova.core.dialogs" />
     <gap:plugin name="org.apache.cordova.core.vibration" />
+    <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.3" />
+
 
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.Notification" />
