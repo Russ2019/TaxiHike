@@ -28,7 +28,7 @@
 			}
 			/* get the container that's just outside the marker image, 
 				which just happens to have our Marker title in it */
-			#googleMap div.gmnoprint[title="I might be here"] {
+			#map_canvas div.gmnoprint[title="I might be here"] {
 				-moz-animation: pulsate 1.5s ease-in-out infinite;
 				-webkit-animation: pulsate 1.5s ease-in-out infinite;
 				border:1pt solid #fff;
@@ -46,13 +46,13 @@
 				width:51px!important;
 			}
 			/* hide the superfluous marker image since it would expand and shrink with its containing element */
-		/*	#googleMap div[style*="987654"][title] img {*/
-			#googleMap div.gmnoprint[title="I might be here"] img {
+		/*	#map_canvas div[style*="987654"][title] img {*/
+			#map_canvas div.gmnoprint[title="I might be here"] img {
 				display:none;
 			}
 			/* compensate for iPhone and Android devices with high DPI, add iPad media query */
 			@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (device-width: 768px) {
-				#googleMap div.gmnoprint[title="I might be here"] {
+				#map_canvas div.gmnoprint[title="I might be here"] {
 					margin:-10px 0 0 -10px;
 				}
 			}
