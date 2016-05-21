@@ -27,6 +27,7 @@
 		var markers = [];
 		var map, lastmarker;
 		var mypos = null;
+		var mycircle = null;
 		var myadr = '';
 		var image = new google.maps.MarkerImage(
 				'bluedot.png',
@@ -52,7 +53,7 @@
 			}
 
 		function createcircle(location, rad) {
-			var myCity = new google.maps.Circle({
+			mycircle = new google.maps.Circle({
 				center:location,
 				radius:rad,
 				strokeColor:"#0000FF",
@@ -73,9 +74,11 @@
 				});
 			}	
 			
-		function createOrRelocate(location) {
+		function createOrRelocate(location, rad) {
 			if (mypos == null) {
-				creategreenmarker(location)
+				creategreenmarker(location);
+				createcircle(location, rad);
+				mycircle.setmap(map);	
 				}
 			else {
 				mypos.setPosition(location);
