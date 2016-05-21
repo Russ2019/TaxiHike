@@ -62,6 +62,8 @@
 				fillColor:"#0000FF",
 				fillOpacity:0.1
 				});
+			alert('circle - '+rad);	
+			mycircle.setmap(map);	
 			}		
 				
 		function creategreenmarker(location) {
@@ -77,13 +79,12 @@
 		function createOrRelocate(location, rad) {
 			if (mypos == null) {
 				creategreenmarker(location);
-				createcircle(location, rad);
-				mycircle.setmap(map);	
+				createcircle(location, rad);					
 				}
 			else {
 				mypos.setPosition(location);
-                                mycircle.setCenter(location);
-                                mycircle.setRadius(rad);
+				mycircle.setCenter(location);
+				mycircle.setRadius(rad);
 				}
 			}	
 		//--------------------------------------------------------------
