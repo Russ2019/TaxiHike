@@ -82,6 +82,8 @@
 				}
 			else {
 				mypos.setPosition(location);
+                                mycircle.setCenter(location);
+                                mycircle.setRadius(rad);
 				}
 			}	
 		//--------------------------------------------------------------
@@ -162,7 +164,7 @@
 			
 			// mypos			
 			//creategreenmarker(loc);
-			createOrRelocate(loc);
+			createOrRelocate(loc, position.coords.accuracy);
 			map.panTo(loc);
 			
 			// adr on footer
@@ -173,7 +175,6 @@
 				
 				// logg	
 				createmarker(loc);
-				createcircle(loc, position.coords.accuracy);
 				
 				// position.coords.latitude
 				// position.coords.longitude
