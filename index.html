@@ -61,9 +61,9 @@
 				strokeWeight:2,
 				fillColor:"#0000FF",
 				fillOpacity:0.1,
-                                map: map,
+				map: map
 				});
-		//	mycircle.setmap(map);	feil mangler uppercase
+			//mycircle.setmap(map);	 mangler uppercase
 			}		
 				
 		function creategreenmarker(location) {
@@ -190,6 +190,9 @@
 				// http://www.w3schools.com/googleapi/tryit.asp?filename=tryhtml_map_overlays_circle
 				// 59.825,10.48
 				
+				var d = new Date();
+				var t = d.toLocaleTimeString();
+				
 				// adr on #page2
 				element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
 									+ position.coords.latitude + ', ' 
@@ -198,7 +201,7 @@
 									+ '<strong>' + myadr + '</strong> <br />' 
 									+ position.coords.heading + ', ' 
 									+ position.coords.speed + '<br />' 
-									+ position.timestamp + '<br />' 
+									+ t + '<br />' 
 									+ '<hr />' + element.innerHTML;																				
 				cnt = cnt + 1;					
 				}					
