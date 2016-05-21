@@ -177,7 +177,12 @@
 			if (sampling > 1) { 
 				sampling = 0; 
 				
-				var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
+				if (lastplot != null) {
+					var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
+					}
+				else { 
+					var dist = 'null'; 
+					}	
 				
 				// logg	
 				createmarker(loc);
