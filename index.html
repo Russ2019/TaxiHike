@@ -49,7 +49,19 @@
 				position: location,
 				map: map,
 				});
-			}	
+			}
+
+		function createcircle(location, rad) {
+			var myCity = new google.maps.Circle({
+				center:location,
+				radius:rad,
+				strokeColor:"#0000FF",
+				strokeOpacity:0.8,
+				strokeWeight:2,
+				fillColor:"#0000FF",
+				fillOpacity:0.1
+				});
+			}		
 				
 		function creategreenmarker(location) {
 			mypos = new google.maps.Marker({
@@ -158,6 +170,7 @@
 				
 				// logg	
 				createmarker(loc);
+				createcircle(loc, 50);
 				
 				// position.coords.latitude
 				// position.coords.longitude
@@ -166,10 +179,13 @@
 				// position.coords.altitudeAccuracy
 				// position.coords.heading
 				// position.coords.speed
-				// position.timestamp				
+				// position.timestamp
+				
+				// http://www.w3schools.com/googleapi/tryit.asp?filename=tryhtml_map_overlays_circle
+				// 59.825,10.48
 				
 				// adr on #page2
-				element.innerHTML = '#' + cnt + ' ' 
+				element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
 									+ position.coords.latitude + ', ' 
 									+ position.coords.longitude + ', ' 
 									+ position.coords.accuracy + '<br />' 
