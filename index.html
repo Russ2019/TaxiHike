@@ -55,14 +55,13 @@
 		function createcircle(location, rad) {
 			mycircle = new google.maps.Circle({
 				center:location,
-				radius:rad,
+				radius:5000,
 				strokeColor:"#0000FF",
 				strokeOpacity:0.8,
 				strokeWeight:2,
 				fillColor:"#0000FF",
 				fillOpacity:0.1
 				});
-			alert('circle - '+rad);	
 			mycircle.setmap(map);	
 			}		
 				
@@ -79,13 +78,14 @@
 		function createOrRelocate(location, rad) {
 			if (mypos == null) {
 				creategreenmarker(location);
-				createcircle(location, rad);					
+				createcircle(location, rad);
 				}
 			else {
 				mypos.setPosition(location);
 				mycircle.setCenter(location);
 				mycircle.setRadius(rad);
 				}
+			if (mycircle != null) { alert('circle ');	} else { alert('circle null'); } 
 			}	
 		//--------------------------------------------------------------
 		
