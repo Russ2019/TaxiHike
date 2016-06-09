@@ -183,14 +183,14 @@
 					var dist = null;
 					}	
 					
-				if (dist < 0) { /*alert('under 0');*/ plotmarker(); }
-				if (dist > 50) { /*alert('over 50');*/ plotmarker(); }
+				if (dist < 0) { /*alert('under 0');*/ plotmarker(dist); }
+				if (dist > 50) { /*alert('over 50');*/ plotmarker(dist); }
 				//if (dist > 0 && dist < 50) { alert('i midten'); }
 				//if (dist < 0 || dist > 50) { alert('under 0 - eller over 50'); }
 				}					
 		}
 
-		function plotmarker() {
+		function plotmarker(dist) {
 			var element = document.getElementById('geolocation');
 			
 			createmarker(loc);
@@ -208,7 +208,7 @@
 								+ '<hr />' + element.innerHTML;																				
 			cnt = cnt + 1;				
 		}
-		
+
 		// onError Callback receives a PositionError object
 		function onError(error) {
 			alert('code: '    + error.code    + '\n' +
