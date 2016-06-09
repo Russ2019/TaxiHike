@@ -167,9 +167,7 @@
 			
 			
 			// mypos			
-			//creategreenmarker(loc);
 			createOrRelocate(loc, position.coords.accuracy);
-
 			map.panTo(loc);
 			
 			// adr on footer
@@ -179,6 +177,16 @@
 			if (sampling > 1) { 
 				sampling = 0; 
 				
+				if (lastplot != null) {
+					var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
+					}
+				else { 
+					var dist = null;
+					}	
+					
+				var d = new Date();
+				var t = d.toLocaleTimeString();
+					
 				// logg	
 				createmarker(loc);
 
@@ -194,6 +202,7 @@
 				cnt = cnt + 1;	
 				}					
 		}
+		
 
 		// onError Callback receives a PositionError object
 		function onError(error) {
