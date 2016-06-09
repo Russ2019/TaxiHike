@@ -183,14 +183,14 @@
 					var dist = -1;
 					}	
 					
-				if (dist < 0) { /*alert('under 0');*/ plotmarker(position,dist); }
-				if (dist > 50) { /*alert('over 50');*/ plotmarker(position,dist); }
+				if (dist < 0) { /*alert('under 0');*/ plotmarker(position, loc, dist); }
+				if (dist > 50) { /*alert('over 50');*/ plotmarker(position, loc, dist); }
 				//if (dist > 0 && dist < 50) { alert('i midten'); }
 				//if (dist < 0 || dist > 50) { alert('under 0 - eller over 50'); }
 				}					
 		}
 
-		function plotmarker(position,dist) {
+		function plotmarker(position, loc, dist) {
 			var element = document.getElementById('geolocation');
 			
 			createmarker(loc);
