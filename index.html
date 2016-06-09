@@ -183,45 +183,39 @@
 					var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
 					}
 				else { 
-					var dist = 0; 
+					var dist = 'null'; 
 					}	
-
-                     // -- only plot marker if dist greater than 50 meters
-                     If (dist > 50) {
 				
-				   // logg	
-				   createmarker(loc);
+				// logg	
+				createmarker(loc);
 				
-				   // position.coords.latitude
-				   // position.coords.longitude
-				   // position.coords.accuracy
-				   // position.coords.altitude
-				   // position.coords.altitudeAccuracy
-				   // position.coords.heading
-// http://gis.stackexchange.com/questions/29239/calculate-bearing-between-two-decimal-gps-coordinates
-				   // position.coords.speed
-				   // position.timestamp
+				// position.coords.latitude
+				// position.coords.longitude
+				// position.coords.accuracy
+				// position.coords.altitude
+				// position.coords.altitudeAccuracy
+				// position.coords.heading
+				// position.coords.speed
+				// position.timestamp
 				
-				   // http://www.w3schools.com/googleapi/tryit.asp?filename=tryhtml_map_overlays_circle
-				   // 59.825,10.48
+				// http://www.w3schools.com/googleapi/tryit.asp?filename=tryhtml_map_overlays_circle
+				// 59.825,10.48
 				
-				   var d = new Date();
-				   var t = d.toLocaleTimeString();
+				var d = new Date();
+				var t = d.toLocaleTimeString();
 				
-				   // adr on #page2
-				   element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
+				// adr on #page2
+				element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
 									+ position.coords.latitude + ', ' 
 									+ position.coords.longitude + ', ' 
 									+ position.coords.accuracy + '<br />' 
 									+ '<strong>' + myadr + '</strong> <br />' 
-									// + position.coords.heading + ', ' 
-									// + position.coords.speed + '<br />' 
+									+ position.coords.heading + ', ' 
+									+ position.coords.speed + '<br />' 
 									+ t + '<br />' 
 									+ dist + '<br />' 
 									+ '<hr />' + element.innerHTML;																				
-				   cnt = cnt + 1;		
-                        } 
-			
+				cnt = cnt + 1;					
 				}					
 		}
 		// onError Callback receives a PositionError object
@@ -251,7 +245,6 @@
 			sampling = sampling+1;
 		};
 		
-           // -- every 5 secs, change to local_storage value ??
 		$(document).ready(function(){
 			window.setInterval(function() {
 				onInterval();
