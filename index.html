@@ -167,12 +167,15 @@
 			
 			
 			// mypos			
+			//creategreenmarker(loc);
 			createOrRelocate(loc, position.coords.accuracy);
 			map.panTo(loc);
 			
 			// adr on footer
 			geocodePosition(loc);
 			
+               // http://stackoverflow.com/questions/13505692/google-maps-api-v3-in-phonegap-markers-not-drawing-properly-after-move
+              // https://developers.google.com/maps/documentation/javascript/examples/geometry-headings
 			if (sampling > 1) { 
 				sampling = 0; 
 				
@@ -180,35 +183,42 @@
 					var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
 					}
 				else { 
-					var dist = -1;
+					// var dist = 'null'; 
+                                        var dist = -1;
 					}	
 
-				if (dist < 0) { /*alert('under 0');*/ plotmarker(); }
-				if (dist > 50) { /*alert('over 50');*/ plotmarker(); }
-				//if (dist > 0 && dist < 50) { alert('i midten'); }
-				//if (dist < 0 || dist > 50) { alert('under 0 - eller over 50'); }
+
+				// logg	
+				createmarker(loc);
+				
+				// position.coords.latitude
+				// position.coords.longitude
+				// position.coords.accuracy
+				// position.coords.altitude
+				// position.coords.altitudeAccuracy
+				// position.coords.heading
+				// position.coords.speed
+				// position.timestamp
+				
+				// http://www.w3schools.com/googleapi/tryit.asp?filename=tryhtml_map_overlays_circle
+				// 59.825,10.48
+				
+				var d = new Date();
+				var t = d.toLocaleTimeString();
+				
+				// adr on #page2
+				element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
+									+ position.coords.latitude + ', ' 
+									+ position.coords.longitude + ', ' 
+									+ position.coords.accuracy + '<br />' 
+									+ '<strong>' + myadr + '</strong> <br />'
+									+ t + '<br />' 
+									+ dist + '<br />' 
+									+ '<hr />' + element.innerHTML;																				
+				cnt = cnt + 1;	
 				}					
 		}
 
-
-		function plotmarker() {
-			/*
-			createmarker(loc);
-			var d = new Date();
-			var t = d.toLocaleTimeString();
-				
-			// adr on #page2
-			element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
-								+ position.coords.latitude + ', ' 
-								+ position.coords.longitude + ', ' 
-								+ position.coords.accuracy + '<br />' 
-								+ '<strong>' + myadr + '</strong> <br />'
-								+ t + '<br />' 
-								+ dist + '<br />' 
-								+ '<hr />' + element.innerHTML;																				
-			cnt = cnt + 1;				
-			*/
-		}
 		
 		// onError Callback receives a PositionError object
 		function onError(error) {
