@@ -180,7 +180,7 @@
 					var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
 					}
 				else { 
-					var dist = null;
+					var dist = -1;
 					}	
 					
 				if (dist < 0) { /*alert('under 0');*/ plotmarker(dist); }
