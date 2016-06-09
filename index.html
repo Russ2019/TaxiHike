@@ -184,12 +184,12 @@
 					}
 				else { 
 					// var dist = 'null'; 
-                                        Var dist = -1;
+                                        var dist = -1;
 					}	
 
 
 				
-                               if (dist < 0 !! dist > 50) {
+                               //if ((dist < 0) !! (dist > 50)) {
 
 				// logg	
 				createmarker(loc);
@@ -221,7 +221,7 @@
 									+ dist + '<br />' 
 									+ '<hr />' + element.innerHTML;																				
 				cnt = cnt + 1;	
-                                }				
+                                //}				
 				}					
 		}
 		// onError Callback receives a PositionError object
