@@ -107,8 +107,10 @@
 				var heading = google.maps.geometry.spherical.computeHeading(lastloc, location);
 				if (heading < 0) { heading = heading + 360; }
 				heading = parseInt(heading);
- 				mypos.icon.rotation = heading;
-				alert(heading);
+ 				caricon.rotation = heading;
+				mypos.setIcon(caricon);				
+				//alert(heading);
+
 				
 				mycircle.setCenter(location);
 				mycircle.setRadius(rad);
