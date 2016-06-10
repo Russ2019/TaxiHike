@@ -28,6 +28,7 @@
 		var markers = [];
 		var map, lastmarker;
 		var lastplot = null;
+		//var lastwatch = null;
 		var mypos = null;
 		var mycircle = null;
 		var myadr = '';
@@ -93,7 +94,7 @@
 				//icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
 				map: map,
 				});
-			}	
+			}
 			
 		function createOrRelocate(location, rad) {
 			if (mypos == null) {
@@ -102,6 +103,11 @@
 				}
 			else {
 				mypos.setPosition(location);
+
+				var heading = 0;
+				if(location) { heading = location.getBearing();	}	// 0 to 360 degrees
+				mypos.icon.rotation = heading;
+				
 				mycircle.setCenter(location);
 				mycircle.setRadius(rad);
 				}
