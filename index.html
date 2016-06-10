@@ -104,6 +104,7 @@
 			else {
 				mypos.setPosition(location);
 				var heading = google.maps.geometry.spherical.computeHeading(lastloc, location);
+				if (heading < 0) { heading = heading + 360; }
 				mypos.icon.rotation = heading;
 				alert(heading);
 
