@@ -105,7 +105,8 @@
 				mypos.setPosition(location);
 				var heading = google.maps.geometry.spherical.computeHeading(lastloc, location);
 				mypos.icon.rotation = heading;
-				
+				alert(heading);
+
 				mycircle.setCenter(location);
 				mycircle.setRadius(rad);
 				}
