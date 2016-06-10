@@ -64,8 +64,6 @@
 		function createmarker(location) {
 			var marker = new google.maps.Marker({
 				position: location,
-				flat: true,
-				icon: caricon,				
 				map: map,
 				});
 			lastplot = location;	
@@ -88,7 +86,9 @@
 		function creategreenmarker(location) {
 			mypos = new google.maps.Marker({
 				position: location,
-				icon: image,
+				flat: true,
+				icon: caricon,				
+				//icon: image,
 				title: 'I might be here',				
 				//icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
 				map: map,
