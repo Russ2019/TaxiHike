@@ -98,16 +98,17 @@
 			
 		function createOrRelocate(location, rad) {
 			if (mypos == null) {
-				creategreenmarker(location);
+				creategreenmarker(location);				
 				createcircle(location, rad);
 				}
 			else {
 				mypos.setPosition(location);
 				var heading = google.maps.geometry.spherical.computeHeading(lastloc, location);
 				if (heading < 0) { heading = heading + 360; }
-				mypos.icon.rotation = heading;
+				heading = parseInt(heading);
+ 				mypos.icon.rotation = heading;
 				alert(heading);
-
+				
 				mycircle.setCenter(location);
 				mycircle.setRadius(rad);
 				}
