@@ -138,35 +138,7 @@
 
 			
 			if (sampling > 1) { 
-				sampling = 0; 
-				
-				if (lastplot != null) {
-					var dist = google.maps.geometry.spherical.computeDistanceBetween (lastplot, loc);
-					}
-				else { 
-					var dist = -1;
-					}	
-					
-				if (dist < 0) { /*alert('under 0');*/ plotmarker(position,loc,dist); }
-				if (dist > 50) { /*alert('over 50');*/ plotmarker(position,loc,dist); }
-				//if (dist > 0 && dist < 50) { alert('i midten'); }
-				//if (dist < 0 || dist > 50) { alert('under 0 - eller over 50'); }
-				}					
-		}
-
-		function plotmarker(position,loc,dist) {
-			var element = document.getElementById('geolocation');
-			
-			createmarker(loc);
-			var d = new Date();
-			var t = d.toLocaleTimeString();
-				
-			// adr on #page2
-			element.innerHTML = '<strong>#' + cnt + '</strong> - ' 
-								+ position.coords.latitude + ', ' 
-								+ position.coords.longitude + ', ' 
-								+ position.coords.accuracy + '<br />' 
-								+ '<strong>' + myadr + '</strong>
+				sampling = 
 	
 	
 </head>
