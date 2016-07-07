@@ -59,8 +59,10 @@
             document.getElementById("time").innerHTML = d.toDateString() + ' - ' + t;
          }
 
-         $( document ).ready(function() {
-               
+         $(document).ready(function() {
+          $('#hike').click(function() {
+          alert('');  
+          });
          }
 
          </script>
@@ -83,14 +85,14 @@
     <div data-role="content" role="main">
 
       
-     <div class="Container-fluid hdr">
+     <div class="container-fluid hdr">
         <center>
 	<span class="fa-stack fa-5x">
 	  <i class="fa fa-circle fa-stack-2x icon-green"></i>
 	  <i class="fa fa-taxi fa-stack-1x icon-white fa-inverse"></i>
 	</span>
         
-	<span class="fa-stack fa-5x">
+	<span id="hike" class="fa-stack fa-5x">
 	  <i class="fa fa-circle fa-stack-2x icon-green"></i>
 	  <i class="fa fa-thumbs-up fa-stack-1x icon-white fa-inverse"></i>
 	</span>
