@@ -54,8 +54,9 @@
 
          function myTimer() {
             var d = new Date();
+            var dt = Date();
             var t = d.toLocaleTimeString();
-            document.getElementById("time").innerHTML = t;
+            document.getElementById("time").innerHTML = dt + ' - ' + t;
          }
          </script>
 
