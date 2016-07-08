@@ -21,7 +21,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		content...
+		page 1...
 	</div><!-- /content -->
 	
 	<div data-role="footer">
