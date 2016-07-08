@@ -1,58 +1,33 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html> 
 <html>
-<title>&nbsp;</title>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Single page template</title> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
 
-	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Page header</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		content...
+	</div><!-- /content -->
 	
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<div data-role="footer">
+		<h4>Page footer</h4>
+	</div><!-- /footer -->
+	
+</div><!-- /page -->
 
-        
-	<link rel="stylesheet" type="text/css" href="http://ququplay.github.io/jquery-mobile-square-ui-theme/css/jquery.mobile.squareui.css" />
-	<script src="http://ququplay.github.io/jquery-mobile-square-ui-theme/js/jquery.min.js"></script>
-	<script src="http://ququplay.github.io/jquery-mobile-square-ui-theme/js/jqm.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-		
-	<style>
-		#content1 {
-		padding: 0;
-		position : absolute !important;
-		top : 40px !important;  
-		right : 0; 
-		bottom : 0px !important;  
-		left : 0 !important;     
-		}	
-
-                .icon-green {
-                color: #006600;
-                }
-                .icon-white {
-                color: #ffffff;
-                }
-                 	
-	        .hdr {
-                background-color: #e0e0e0;
-                }
-                .hdr1 {
-                color: #006600;
-                font-size: 32px;
-                font-weight: bold;
-                }
-                .hdr2 {
-                color: #006600;
-                font-size: 20px;
-                font-weight: normal;
-                margin-top:-5px;
-                }
-         </style>
-</head>
-
-<body>
-	page1
 </body>
-
 </html>
