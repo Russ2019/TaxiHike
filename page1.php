@@ -16,6 +16,7 @@
 <div data-role="page">
 
 	<div data-role="header">
+		<a href="" data-rel="back">< Tilbake</a>
 		<h1>Page header</h1>
 	</div><!-- /header -->
 
