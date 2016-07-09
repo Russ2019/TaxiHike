@@ -34,7 +34,7 @@
 
 	<div data-role="header">
 		<a href="" data-rel="back">< Tilbake</a>
-		<h1 style="font-size:24px;">T U R T I L B U D</h1>(nær deg)
+		<h1 style="font-size:16px;">T U R T I L B U D</h1>(nær deg)
 	</div><!-- /header -->
 
 	<div data-role="content">	
