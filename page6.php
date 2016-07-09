@@ -24,6 +24,7 @@
 			-webkit-border-radius: 50% !important;
 			border-radius: 50% !important;
 		}
+                h1 { font-size: 24px; }
 	</style>
 </head> 
 
