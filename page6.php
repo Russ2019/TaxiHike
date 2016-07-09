@@ -9,6 +9,22 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<style>
+		/*
+		 * Card component
+		 */
+
+		.profile-img-card {
+			width: 156px;
+			height: 156px;
+			margin: 0 auto 10px;
+			margin-top: 20px;
+			display: block;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+		}
+	</style>
 </head> 
 
 <body> 
@@ -21,9 +37,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<center>
-			<img id="profile-img" class="profile-img-card" src="avatar_2x.png"/>
-		</center>
+		<img id="profile-img" class="profile-img-card" src="avatar_2x.png"/>
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed">
