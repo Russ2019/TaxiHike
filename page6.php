@@ -15,14 +15,14 @@
 		 */
 
 		.profile-img-card {
-			width: 156px;
-			height: 156px;
-			margin: 0 auto 10px;
-			margin-top: 20px;
-			display: block;
-			-moz-border-radius: 50%;
-			-webkit-border-radius: 50%;
-			border-radius: 50%;
+			width: 156px !important;
+			height: 156px !important;
+			margin: 0 auto 10px !important;
+			margin-top: 20px !important;
+			display: block !important;
+			-moz-border-radius: 50% !important;
+			-webkit-border-radius: 50% !important;
+			border-radius: 50% !important;
 		}
 	</style>
 </head> 
