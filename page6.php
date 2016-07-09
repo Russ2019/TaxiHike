@@ -14,7 +14,7 @@
 		 * Card component
 		 */
 
-		.profile-img-card {
+		#profile-img {
 			width: 156px !important;
 			height: 156px !important;
 			margin: 0 auto 10px !important;
@@ -34,7 +34,7 @@
 
 	<div data-role="header">
 		<a href="" data-rel="back">< Tilbake</a>
-		<h1>T U R T I L B U D<br>(nær deg)</h1>
+		<h1 style="font-size:24px;">T U R T I L B U D</h1>(nær deg)
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -44,7 +44,7 @@
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed">
-		<h1 style="font-size: 32px;">Til: Bekkestua<br>Pris: 400,-</h1>
+		<h1 style="font-size: 24px;">Til: Bekkestua<br>Pris: 400,-</h1>
 	</div><!-- /footer -->
 	
 </div><!-- /page -->
