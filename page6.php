@@ -44,7 +44,7 @@
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed">
-		<h1>Til: Bekkestua<br>Pris: 400,-</h1>
+		<h1 style="font-size: 32px;">Til: Bekkestua<br>Pris: 400,-</h1>
 	</div><!-- /footer -->
 	
 </div><!-- /page -->
