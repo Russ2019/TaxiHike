@@ -17,15 +17,15 @@
 
 	<div data-role="header">
 		<a href="" data-rel="back">< Tilbake</a>
-		<h1>Page header</h1>
+		<h1>T U R T I L B U D<br>(nær deg)</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		page 4...
+		page 6...
 	</div><!-- /content -->
 	
 	<div data-role="footer">
-		<h4>Page footer</h4>
+		<h1>Til: Bekkestua<br>Pris: 400,-</h1>
 	</div><!-- /footer -->
 	
 </div><!-- /page -->
