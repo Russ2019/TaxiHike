@@ -21,7 +21,9 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		page 6...
+		<center>
+			<img id="profile-img" class="profile-img-card" src="avatar_2x.png"/>
+		</center>
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed">
