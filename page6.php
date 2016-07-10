@@ -9,7 +9,12 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-	<style>
+	
+</head> 
+
+<body> 
+
+<style>
 		/*
 		 * Card component
 		 */
@@ -26,9 +31,6 @@
 		}
                 h1 { font-size: 24px; }
 	</style>
-</head> 
-
-<body> 
 
 <div data-role="page">
 
