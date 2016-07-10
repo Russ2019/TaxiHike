@@ -41,7 +41,7 @@
 
 	<div data-role="content">	
                 <center>
-		<img id="profile-img" class="profile-img-card" src="avatar_2x.png"/>
+		<img id="profile-img" style="border-radius: 50%;" class="profile-img-card" src="avatar_2x.png"/>
                 </center>
 	</div><!-- /content -->
 	
