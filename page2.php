@@ -4,12 +4,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.squareui.css" />
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jqm.min.js"></script>
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+	<link rel="stylesheet" type="text/css" href="http://ququplay.github.io/jquery-mobile-square-ui-theme/css/jquery.mobile.squareui.css" />
+	<script src="http://ququplay.github.io/jquery-mobile-square-ui-theme/js/jquery.min.js"></script>
+	<script src="http://ququplay.github.io/jquery-mobile-square-ui-theme/js/jqm.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
   
-  <script src="http://maps.googleapis.com/maps/api/js"></script>
-  
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
   <script>
   function initialize() {
     var mapProp = {
