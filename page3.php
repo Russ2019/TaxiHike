@@ -1,34 +1,47 @@
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Single page template</title> 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-</head> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.squareui.css" />
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jqm.min.js"></script>
+</head>
 
-<body> 
+<body>
+  <div data-role="page">
+    <div data-role="header">
+      <a data-iconpos="notext" data-role="button" data-icon="home" title="Home">Home</a>
+      <h1>A</h1>
+      <a data-iconpos="notext" data-role="button" data-icon="flat-menu"></a>
+    </div>
 
-<div data-role="page">
 
-	<div data-role="header">
-		<a href="" data-rel="back">< Tilbake</a>
-		<h1>Page header</h1>
-	</div><!-- /header -->
+    <div data-role="content" role="main">
+      <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+          <h3>Section 1</h3>
+          <p>I'm the collapsible content for section 1</p>
+        </div>
+        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+          <h3>Section 2</h3>
+          <p>I'm the collapsible content for section 2</p>
+        </div>
+        <div data-role="collapsible" data-collapsed-icon="flat-settings" data-expanded-icon="flat-cross">
+          <h3>Section 3</h3>
+          <p>I'm the collapsible content for section 3</p>
+        </div>
+      </div>
 
-	<div data-role="content">	
-		page 3...
-	</div><!-- /content -->
-	
-	<div data-role="footer">
-		<h4>Page footer</h4>
-	</div><!-- /footer -->
-	
-</div><!-- /page -->
 
+      <input type="search"  data-theme="b" value="Text Input" />
+      <div data-role="fieldcontain">
+        <input type="range" name="slider" value="50" min="0" max="100" data-highlight="true" />
+      </div>
+    </div>
+  </div>
+
+  <div id="highlight"> </div>
 </body>
 </html>
