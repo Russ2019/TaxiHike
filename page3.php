@@ -4,9 +4,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.squareui.css" />
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jqm.min.js"></script>
 </head>
 
 <body>
@@ -34,9 +31,7 @@
         </div>
       </div>
 
-      <script
-      src="http://maps.googleapis.com/maps/api/js">
-      </script>
+      <script src="http://maps.googleapis.com/maps/api/js"> </script>
       
       <script>
       function initialize() {
