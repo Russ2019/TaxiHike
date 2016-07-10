@@ -33,9 +33,8 @@
 	</style>
 
 <div data-role="page">
-        <style>
-        #profile-img { border-radius: 50%; }
-        </style>
+
+        <link rel="stylesheet" href="page6.css" />
 
 	<div data-role="header">
 		<a href="" data-rel="back">< Tilbake</a>
