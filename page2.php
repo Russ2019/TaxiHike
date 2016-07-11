@@ -15,11 +15,11 @@
 	<script>
 		$(document).ready(function(){
 			$('#my-collapsible').bind('expand', function () {
-				alert('Expanded');
-				$('#googleMap').show();
-			}).bind('collapse', function () {
-				alert('Collapsed');
+				//alert('Expanded');
 				$('#googleMap').hide();
+			}).bind('collapse', function () {
+				//alert('Collapsed');
+				$('#googleMap').show();
 			});
 		});
 	</script>
