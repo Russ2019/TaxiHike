@@ -14,6 +14,7 @@
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 	<script>
 		$(document).ready(function(){
+			$('#my-collapsible').collapsible( "collapse" );
 			$('#my-collapsible').bind('expand', function () {
 				alert('Expanded');
 			}).bind('collapse', function () {
