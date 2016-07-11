@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div id="googleMap" style="width:100%;height:100%;"></div>
+      <div id="googleMap" style="width:100%;height:410px;"></div>
 
       <div data-role="fieldcontain">
         <input type="range" name="slider" value="50" min="0" max="100" data-highlight="true" />
