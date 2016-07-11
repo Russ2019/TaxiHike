@@ -11,7 +11,17 @@
 	<link rel="stylesheet" type="text/css" href="http://ququplay.github.io/jquery-mobile-square-ui-theme/css/jquery.mobile.squareui.css" />
 	<script src="http://ququplay.github.io/jquery-mobile-square-ui-theme/js/jquery.min.js"></script>
 	<script src="http://ququplay.github.io/jquery-mobile-square-ui-theme/js/jqm.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>    
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
+	<script>
+		$(document).ready(function(){
+			$('#my-collapsible').bind('expand', function () {
+				alert('Expanded');
+			}).bind('collapse', function () {
+				alert('Collapsed');
+			});
+		});
+	</script>
+	
 </head>
 
 <body>
@@ -24,7 +34,7 @@
 
     <div data-role="content" role="main">
       <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
-        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+        <div id="my-collapsible" data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
           <h3>Section 1</h3>
           <p>I'm the collapsible content for section 1</p>
         </div>
