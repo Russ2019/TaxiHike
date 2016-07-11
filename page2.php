@@ -14,11 +14,12 @@
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
 	<script>
 		$(document).ready(function(){
-			$('#my-collapsible').collapsible( "collapse" );
 			$('#my-collapsible').bind('expand', function () {
 				alert('Expanded');
+				$('#googleMap').show();
 			}).bind('collapse', function () {
 				alert('Collapsed');
+				$('#googleMap').hide();
 			});
 		});
 	</script>
@@ -35,7 +36,7 @@
 
     <div data-role="content" role="main">
       <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
-        <div id="my-collapsible" data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+        <div id="my-collapsible" data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="true">
           <h3>Section 1</h3>
           <p>I'm the collapsible content for section 1</p>
         </div>
