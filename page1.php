@@ -90,6 +90,7 @@
 <!---------------------------------- Main Page --------------------------------------->
 <div data-role="page" id="main">
     <div data-role="header" data-position="fixed">
+	<a data-rel="back" data-icon="arrow-l">Tilbake</a>
         <h1 id="appTitle">TaxiHike 1.0.3</h1>
     </div>
     <div data-role="content">   
@@ -118,7 +119,7 @@
 
 <div data-role="page" id="page3">
     <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
+	<a data-rel="back" data-icon="arrow-l">Tilbake</a>
         <h1>Parametere</h1>
     </div>
 	<div data-role="content">		
