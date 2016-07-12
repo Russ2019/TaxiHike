@@ -1,7 +1,7 @@
 		function taxihike() { 
 			var url = 'http://www.itorget.no/tc/wp-content/tc/server/';
 			//var url = local_var('appid');
-			local_storage_set('url', url);
+			//local_storage_set('url', url);
 			var url_th = local_var('url') + 'page5.php';
 			
 			//alert('taxi hike'); 
