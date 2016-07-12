@@ -31,6 +31,7 @@
 		function initData(data) {			
 			//save to local storage...then show local_storage_show...
 			if (data !== '') {
+                                alert('initdata - 1');
 				var objs = data;
 				
 				$.each(objs, function(idx, obj){ 
@@ -40,6 +41,7 @@
 				});
 				}
 			else {
+                                alert('initdata - 2');
 				alert('Feil kode ' + $('kode').val());
 				$('#kode').val('');
 				}			
