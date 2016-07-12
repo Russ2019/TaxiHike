@@ -7,7 +7,7 @@
 			$.ajax({
 				  url: 'http://www.itorget.no/tc/wp-content/themes/tc/server/server_tc.php',
 				  type: 'post',
-				  data : {appid : kode, srvc: 'init'},
+				  data : {appid : kode, srvc: 'init_taxihike'},
 				  dataType: 'json',
 				  success: function(data) {
 						initData(data);
