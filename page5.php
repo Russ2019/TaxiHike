@@ -21,7 +21,8 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		page 5...
+		page 5...<br>
+		<button onclick="taxihike();">taxihike</button</button>
 	</div><!-- /content -->
 	
 	<div data-role="footer">
