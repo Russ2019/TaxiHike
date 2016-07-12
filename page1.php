@@ -21,7 +21,13 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		page 1...
+		<div data-role="fieldcontain" class="ui-hide-label">
+			<form>
+				<label for="kode">Aktiveringskode</label>
+				<input type="text" name="kode" id="kode" value="" placeholder="Kode"/>
+			</form>
+		</div>              
+		<button onclick="init_app();">Aktiver</button>
 	</div><!-- /content -->
 	
 	<div data-role="footer">
