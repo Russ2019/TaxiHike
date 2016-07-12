@@ -18,6 +18,16 @@
 				});			
 			}
 			
+		function local_storage_show() {	
+			if(typeof(Storage) !== "undefined") {
+				var url = local_storage_get('url'); 
+				
+				$("#local_vars").html('').trigger('create');
+				$("#local_vars").append('url : '+url+'<br>').trigger('create');
+				}
+			}
+			
+			
 		function initData(data) {			
 			//save to local storage...then show local_storage_show...
 			if (data !== '') {
