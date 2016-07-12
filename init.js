@@ -42,7 +42,7 @@
 				}
 			else {
                                 alert('initdata - 2');
-				alert('Feil kode ' + $('kode').val());
+				alert('Feil kode ' + $('#kode').val());
 				$('#kode').val('');
 				}			
 			}
