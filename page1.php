@@ -19,12 +19,6 @@
 			}
 	</style>
 	<script>
-		var app_activated = local_var('appid');
-		if (app_activated) {
-			window.location.href = "mal.html";
-		}
-	</script>
-	<script>
 		$(document).bind("mobileinit", function(){
 		  //To override default settings, bind to mobileinit.
 		  $.mobile.defaultPageTransition = "none";
