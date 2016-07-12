@@ -10,7 +10,7 @@
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	
-    <script type="text/javascript" src="js/taxihike.js"></script>
+    	<script type="text/javascript" src="js/taxihike.js"></script>
 	<style>
 		.mesgBox { 
 			border-radius: 8px;
@@ -100,7 +100,7 @@
     </div>
     <div data-role="content">   
 		<ul data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="#page2" >Aktivering</a></li>
+			<li><a href="#page2" >Reset</a></li>
 			<li><a href="#page3" >Parametere</a></li>
 		</ul>
     </div>
@@ -109,18 +109,16 @@
 <!---------------------------------- Notification ------------------------------------>
 <div data-role="page" id="page2">
     <div data-role="header">
-		<a data-rel="back" data-icon="arrow-l">Tilbake</a>
-        <h1>Aktiveringskode</h1>
+	<a data-rel="back" data-icon="arrow-l">Tilbake</a>
+        <h1>Reset App</h1>
     </div>
 	<div data-role="content">
 		<div id="addContactProperties"></div>
 		<div data-role="fieldcontain" class="ui-hide-label">
 			<form>
-				<label for="kode">Aktiveringskode</label>
-				<input type="text" name="kode" id="kode" value="" placeholder="Kode"/>
 			</form>
 		</div>              
-		<button onclick="init_app();">Aktiver</button>
+		<button onclick="reset_app();">Reset</button>
 	</div>
 </div>
 
