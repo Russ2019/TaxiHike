@@ -40,7 +40,7 @@
 				});
 				}
 			else {
-				alert('Feil kode');
+				alert('Feil kode ' + $('kode').val());
 				$('#kode').val('');
 				}			
 			}
