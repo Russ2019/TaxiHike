@@ -20,7 +20,8 @@
 		<h1>Page header</h1>
 	</div><!-- /header -->
 
-	<div data-role="content">	
+	<div data-role="content">
+		<div id="local_vars"></div>	
 		<div data-role="fieldcontain" class="ui-hide-label">
 			<form>
 				<label for="kode">Aktiveringskode</label>
