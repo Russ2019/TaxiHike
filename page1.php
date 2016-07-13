@@ -46,6 +46,7 @@
 		var taxisentral = 'Asker & Bærum Taxi';
 		//var loyvenr = local_var('loyvenr');
 		var loyvenr = 'C-93';
+		var url = local_var('url');
 		//var status = local_var('status');
 		var status = 'Aktiv';
 		
@@ -77,6 +78,9 @@
 
         $("#localparams").append(addGridRow("a", boldLabel("Mobnr")));          
         $("#localparams").append(addGridRow("b", mobnr));
+
+        $("#localparams").append(addGridRow("a", boldLabel("Url")));          
+        $("#localparams").append(addGridRow("b", url));
 
         $("#localparams").append(addGridRow("a", boldLabel("Status")));          
         $("#localparams").append(addGridRow("b", status));
