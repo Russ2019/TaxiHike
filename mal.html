@@ -84,9 +84,8 @@
               var url = local_var('url');
               var href = url + $(this).attr('href');
               e.preventDefault();
-              alert(href);
-              //window.location.href = href;
-              // window.location
+              //alert(href);
+              window.location.href = href;
             });
          });
    
@@ -141,7 +140,7 @@
       </fieldset>
       <fieldset class="ui-grid-a">
         <div class="ui-block-a"><a href="page3.php"><button data-icon="flat-man" data-theme="g">Annonser</button></a></div>
-        <div class="ui-block-b"><a href="page4.php"><button data-icon="flat-mail" data-theme="d">Hikes</button></a></div>
+        <div class="ui-block-b"><a href="page4.php" data-ajax=false" class="ext"><button data-icon="flat-mail" data-theme="d">Hikes</button></a></div>
       </fieldset>
       <fieldset class="ui-grid-a">
         <div class="ui-block-a"><a href="page5.php"><button data-icon="flat-lock" data-theme="e">Button E</button></a></div>
