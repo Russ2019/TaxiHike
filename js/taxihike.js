@@ -320,7 +320,7 @@
 		function ajax_call(appid, srvc, pgid, uid, po, rp) {
 			//alert('inside ajax');
 			$.ajax({
-				  url: 'http://itorget.no/tc/wp-content/themes/tc/server/server_tc.php',
+				  url: 'http://itorget.no/tc/wp-content/themes/th/server/server_tc.php',
 				  type: 'post',
 				  data : {appid : appid, srvc: srvc, pgid : pgid, uid : uid, po : po, rp : rp},
 				  dataType: 'json',
