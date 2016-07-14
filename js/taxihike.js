@@ -338,7 +338,7 @@
 		function ajax_init() {
 			var kode = $('#kode').val();
 			$.ajax({
-				  url: 'http://itorget.no/tc/wp-content/themes/th/server/server_tc.php',
+				  url: 'http://itorget.no/tc/wp-content/themes/tc/server/server_tc.php',
 				  type: 'post',
 				  data : {appid : kode, srvc: 'init'},
 				  dataType: 'json',
