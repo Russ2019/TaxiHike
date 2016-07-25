@@ -67,14 +67,24 @@
          $(document).ready(function() {
             $("#taxi").click(function() {
               //alert('');  
-              navigator.notification.beep(1);
+              //navigator.notification.beep(1);
+              var url = local_var('url');
+              var href = url + page_A.php'';
+              e.preventDefault();
+              //alert(href);
+              window.location.href = href;
             });
          });
    
          $(document).ready(function() {
             $("#hike").click(function() {
-              navigator.notification.vibrate(1000);
-            });
+              //navigator.notification.vibrate(1000);
+              var url = local_var('url');
+              var href = url + page_B.php'';
+              e.preventDefault();
+              //alert(href);
+              window.location.href = href;
+      });
          });
 
          $(document).ready(function() {
@@ -148,7 +158,7 @@
       </fieldset>
       <br>
       <fieldset class="ui-grid-solo">
-       <div class="ui-block-a"><button id="test" data-icon="flat-menu" data-theme="f" style="background-color:#00284d">Button F</button></div>
+       <div class="ui-block-a"><a href="page7.php" data-ajax=false" class="ext"><button id="test" data-icon="flat-menu" data-theme="f" style="background-color:#00284d">Button F</button></a></div>
       </fieldset>
 
 	  
