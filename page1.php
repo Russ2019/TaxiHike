@@ -86,8 +86,6 @@
         $("#localparams").append(addGridRow("a", boldLabel("Status")));          
         $("#localparams").append(addGridRow("b", status));
 
-        $("#localparams").append(addGridRow("a", boldLabel("lb_btn1")));          
-        $("#localparams").append(addGridRow("b", lb_btn1));
     }	
 	</script>
 	
