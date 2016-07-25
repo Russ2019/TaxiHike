@@ -65,7 +65,7 @@
          }
 
          $(document).ready(function() {
-            $("#taxi").click(function() {
+            $("#taxi").click(function(e) {
               //alert('');  
               //navigator.notification.beep(1);
               var url = local_var('url');
@@ -77,10 +77,10 @@
          });
    
          $(document).ready(function() {
-            $("#hike").click(function() {
+            $("#hike").click(function(e) {
               //navigator.notification.vibrate(1000);
-              var url = local_var('url');
-              var href = url + 'page_B.php';
+              //var url = local_var('url');
+              //var href = url + 'page_B.php';
               e.preventDefault();
               alert(href);
               window.location.href = href;
