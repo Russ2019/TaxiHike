@@ -47,6 +47,7 @@
 		//var loyvenr = local_var('loyvenr');
 		var loyvenr = 'C-93';
 		var url = local_var('url');
+                var btn1 = local_var('lb_btn1');
 		//var status = local_var('status');
 		var status = 'Aktiv';
 		
