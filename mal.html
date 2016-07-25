@@ -67,22 +67,22 @@
          $(document).ready(function() {
             $("#taxi").click(function(e) {
               //alert('');  
-              //navigator.notification.beep(1);
+              navigator.notification.beep(1);
               var url = local_var('url');
               var href = url + 'page_A.php';
               e.preventDefault();
-              alert(href);
+              //alert(href);
               window.location.href = href;
             });
          });
    
          $(document).ready(function() {
             $("#hike").click(function(e) {
-              //navigator.notification.vibrate(1000);
-              //var url = local_var('url');
-              //var href = url + 'page_B.php';
+              navigator.notification.vibrate(1000);
+              var url = local_var('url');
+              var href = url + 'page_B.php';
               e.preventDefault();
-              alert(href);
+              //alert(href);
               window.location.href = href;
       });
          });
