@@ -8,8 +8,8 @@
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 	
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         
 	<link rel="stylesheet" type="text/css" href="http://ququplay.github.io/jquery-mobile-square-ui-theme/css/jquery.mobile.squareui.css" />
@@ -55,28 +55,33 @@
                 #test .ui-button { background-color:red; }
          </style>
          <script>
-			 var myVar = setInterval(function(){ myTimer() }, 1000);
+         var myVar = setInterval(function(){ myTimer() }, 1000);
 
-			 function myTimer() {
-				var d = new Date();
-				var dt = Date();
-				var t = d.toLocaleTimeString();
-				document.getElementById("time").innerHTML = d.toDateString() + ' - ' + t;
-			 }
+         function myTimer() {
+            var d = new Date();
+            var dt = Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("time").innerHTML = d.toDateString() + ' - ' + t;
+         }
 
-			 $(document).ready(function() {
-				$("#taxi").click(function() {
-				  //alert('');  
-				  navigator.notification.beep(1);
-                                  alert(local_var('url'));
-				});
-			 });
-	   
-			 $(document).ready(function() {
-				$("#hike").click(function() {
-				  navigator.notification.vibrate(1000);
-				});
-			 });
+         $(document).ready(function() {
+            $("#taxi").click(function() {
+              //alert('');  
+              navigator.notification.beep(1);
+              alert(local_var('url'));
+            });
+         });
+   
+         $(document).ready(function() {
+            $("#hike").click(function() {
+                navigator.notification.vibrate(1000);
+            });
+            $(".ext").click(function() {
+               alert($(this).attr('href'));
+            });
+         });
+      
+
          </script>
 
 </head>
@@ -99,42 +104,42 @@
       
      <div class="container-fluid hdr">
         <center>
-			<span id="taxi" class="fa-stack fa-5x">
-			  <i class="fa fa-circle fa-stack-2x icon-green"></i>
-			  <i class="fa fa-taxi fa-stack-1x icon-white fa-inverse"></i>
-			</span>
-				
-			<span id="hike" class="fa-stack fa-5x">
-			  <i class="fa fa-circle fa-stack-2x icon-green"></i>
-			  <i class="fa fa-thumbs-up fa-stack-1x icon-white fa-inverse"></i>
-			</span>
+	<span id="taxi" class="fa-stack fa-5x">
+	  <i class="fa fa-circle fa-stack-2x icon-green"></i>
+	  <i class="fa fa-taxi fa-stack-1x icon-white fa-inverse"></i>
+	</span>
+        
+	<span id="hike" class="fa-stack fa-5x ext">
+	  <i class="fa fa-circle fa-stack-2x icon-green"></i>
+	  <i class="fa fa-thumbs-up fa-stack-1x icon-white fa-inverse"></i>
+	</span>
         </center>
 
         <center>
           <div class="hdr1">Taxi Hike</div>
-          <div class="hdr2">versjon 1.0.3</div>
+          <div class="hdr2">versjon 1.0.1</div>
         </center>
         <br>
         
      </div>
 
-      <p id="time">DATO KLOKKESLETT</p><br>
+      <p id="time"></p><br>
 
       <fieldset class="ui-grid-a">
         <div class="ui-block-a"><a href="page1.php" data-ajax="false"><button data-icon="flat-settings" data-theme="a">Instillinger</button></a></div>
         <div class="ui-block-b"><a href="page2.php"><button data-icon="flat-new" data-theme="b">Hjelp</button></a></div>
       </fieldset>
       <fieldset class="ui-grid-a">
-        <div class="ui-block-a"><a href="page3.php"><button data-icon="flat-menu" data-theme="g">Priser</button></a></div>
-        <div class="ui-block-b"><a href="page4.php"><button data-icon="flat-mail" data-theme="d">Meldinger</button></a></div>
+        <div class="ui-block-a"><a href="page3.php"><button data-icon="flat-man" data-theme="g">Annonser</button></a></div>
+        <div class="ui-block-b"><a href="page4.php"><button data-icon="flat-mail" data-theme="d">Hikes</button></a></div>
       </fieldset>
       <fieldset class="ui-grid-a">
-        <div class="ui-block-a"><a href="page5.php"><button data-icon="flat-lock" data-theme="e">Taxi</button></a></div>
-        <div class="ui-block-b"><a href="page6.php"><button data-icon="flat-menu" data-theme="f">Hike</button></a></div>
+        <div class="ui-block-a"><a href="page5.php"><button data-icon="flat-lock" data-theme="e">Button E</button></a></div>
+        <div class="ui-block-b"><a href="page6.php"><button data-icon="flat-menu" data-theme="f" disabled="disabled">Button F</button></a></div>
       </fieldset>
       <br>
       <fieldset class="ui-grid-solo">
-       <div class="ui-block-a"><button id="test" data-icon="flat-menu" data-theme="f" style="background-color:#00284d">Avtaleturer</button></div>
+       <div class="ui-block-a"><button id="test" data-icon="flat-menu" data-theme="f" style="background-color:#00284d">Button F</button></div>
       </fieldset>
 
 	  
