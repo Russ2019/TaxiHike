@@ -37,6 +37,7 @@
 		var appid = local_var('appid');
 		var pgid = local_var('pgid');
 		var uid = local_var('uid');
+          var ver = local_var('ver');
 		var srvc = local_var('srvc');
 		//var navn = local_var('navn');
 		var navn = 'Taxi';
@@ -47,7 +48,6 @@
 		//var loyvenr = local_var('loyvenr');
 		var loyvenr = 'C-93';
 		var url = local_var('url');
-                var lb_btn1 = local_var('lb_btn1');
 		//var status = local_var('status');
 		var status = 'Aktiv';
 		
@@ -61,6 +61,9 @@
 		
         $("#localparams").append(addGridRow("a", boldLabel("pgid")));          
         $("#localparams").append(addGridRow("b", pgid));
+
+        $("#localparams").append(addGridRow("a", boldLabel("ver")));          
+        $("#localparams").append(addGridRow("b", ver));
 
         $("#localparams").append(addGridRow("a", boldLabel("srvc")));          
         $("#localparams").append(addGridRow("b", srvc));
@@ -85,7 +88,6 @@
 
         $("#localparams").append(addGridRow("a", boldLabel("Status")));          
         $("#localparams").append(addGridRow("b", status));
-
     }	
 	</script>
 	
@@ -100,7 +102,7 @@
         <h1 id="appTitle">TaxiHike 1.0.3</h1>
     </div>
     <div data-role="content">   
-		<ul data-role="listview" data-inset="true" data-filter="false">
+		<ul data-role="listview" data-inset="true" data-filter="true">
 			<li><a href="#page2" >Reset</a></li>
 			<li><a href="#page3" >Parametere</a></li>
 		</ul>
