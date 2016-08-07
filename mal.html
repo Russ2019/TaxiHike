@@ -78,7 +78,7 @@
             });
             $(".ext").click(function() {
                //alert($(this).attr('href'));
-               $(this).prevenDefault();
+               $(this).preventDefault();
                 var url = local_var('url');
                 var href = $(this).attr('href');
                 window.location.href = url + href;
