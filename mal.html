@@ -66,22 +66,23 @@
 
          $(document).ready(function() {
             $("#taxi").click(function() {
-              //alert('');  
-              navigator.notification.beep(1);
-              alert(local_var('url'));
+              //navigator.notification.beep(1);
+              //alert(local_var('url'));
+              var href = 'page_A.php';
+              window.location.href = local_var('url') + href;
             });
          });
    
          $(document).ready(function() {
             $("#hike").click(function() {
-                navigator.notification.vibrate(1000);
+                //navigator.notification.vibrate(1000);
+                var href = 'page_B.php';
+                window.location.href = local_var('url') + href;
             });
             $(".ext").click(function(e) {
-               alert(local_var('url') + $(this).attr('href'));
-               e.preventDefault();
+                e.preventDefault();
                 var url = local_var('url');
                 var href = $(this).attr('href');
-                alert(url + href);
                 window.location.href = url + href;
             });
          });
@@ -131,7 +132,7 @@
       <p id="time"></p><br>
 
       <fieldset class="ui-grid-a">
-        <div class="ui-block-a"><a class="ext" href="page1.php" data-ajax="false"><button data-icon="flat-settings" data-theme="a">Instillinger</button></a></div>
+        <div class="ui-block-a"><a href="page1.php" data-ajax="false"><button data-icon="flat-settings" data-theme="a">Instillinger</button></a></div>
         <div class="ui-block-b"><a class="ext" href="page2.php" data-ajax="false"><button data-icon="flat-new" data-theme="b">Hjelp</button></a></div>
       </fieldset>
       <fieldset class="ui-grid-a">
