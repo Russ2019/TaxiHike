@@ -76,9 +76,9 @@
             $("#hike").click(function() {
                 navigator.notification.vibrate(1000);
             });
-            $(".ext").click(function() {
+            $(".ext").click(function(e) {
                alert(local_var('url') + $(this).attr('href'));
-               $(this).preventDefault();
+               e.preventDefault();
                 var url = local_var('url');
                 var href = $(this).attr('href');
                 alert(url + href);
