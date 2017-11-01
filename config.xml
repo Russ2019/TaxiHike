@@ -21,7 +21,7 @@
     <icon src="icon.png" platform="android" density="hdpi" />
     <icon src="icon.png" platform="android" density="xhdpi" />
     
-    <preference name="phonegap-version" value="3.0.0" />
+    <preference name="phonegap-version" value="" />
     <access origin="*" />
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
