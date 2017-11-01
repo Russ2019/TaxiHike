@@ -20,13 +20,17 @@
 	</style>
 	<script>
 		var app_activated = local_var('appid');
-		var app_clean = local_var('clean');
-		if (app_clean) {
-                        var href = 'clean.php';
-                        window.location.href = local_var('url') + href;
-		}
-		else if (app_activated) {
-			window.location.href = "mal.html";
+		//var app_clean = local_var('clean');
+		//if (app_clean) {
+                //       var href = 'clean.php';
+                //       window.location.href = local_var('url') + href;
+		//}
+	        if (app_activated) {
+			if (app_activated == 'clean') {
+			   window.location.href = local_var('url') + 'clean.php';
+			} else {
+			   window.location.href = "mal.html";
+			}
 		}
 	</script>
 	<script>
