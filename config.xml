@@ -27,9 +27,7 @@
     <uses-permission name="permission.INTERNET" />
     
   
-    <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
-    <plugin name="de.appplant.cordova.plugin.background-mode" spec="0.6.4" source="pgb" />
-
+    
     <!-- github.com/ismael-jimoh/Test-Hydration/blob/master/config.xml -->
     
 
