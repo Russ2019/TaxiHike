@@ -26,7 +26,7 @@
     <allow-navigation href="*" />
     <uses-permission name="permission.INTERNET" />
     
-    <gap:plugin name="org.apache.cordova.device" version="0.2.3" />
+  
     <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
     <plugin name="de.appplant.cordova.plugin.background-mode" spec="0.6.4" source="pgb" />
 
